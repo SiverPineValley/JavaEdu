@@ -28,6 +28,7 @@ public class MainFrame extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JPasswordField passwordField;
+	private SignIn signframe = new SignIn();
 
 	/**
 	 * Launch the application.
@@ -93,7 +94,7 @@ public class MainFrame extends JFrame {
 		JButton btnSignIn = new JButton("Sign in");
 		btnSignIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				signframe.setVisible(true);
 			}
 		});
 		

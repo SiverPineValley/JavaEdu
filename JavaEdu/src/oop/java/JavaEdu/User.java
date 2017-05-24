@@ -1,6 +1,15 @@
 package oop.java.JavaEdu;
 
-public class User extends JavaEdu {
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
+import javax.swing.JOptionPane;
+
+public class User extends JavaEdu implements Serializable {
 	private double[] quizPoint;
 	private String name;
 	private String id;
@@ -11,7 +20,7 @@ public class User extends JavaEdu {
 		this.id = id;
 		this.password = password;
 	}
-	
+
 	public double[] getQuizPoint() {
 		return quizPoint;
 	}
@@ -25,8 +34,8 @@ public class User extends JavaEdu {
 	}
 
 	public void setId(String id) {
-		if( ( id != null ) && ( id.length() == 9 ) )
-		this.id = id;
+		if ((id != null) && (id.length() == 9))
+			this.id = id;
 	}
 
 	public String getName() {
@@ -43,7 +52,7 @@ public class User extends JavaEdu {
 	}
 
 	public void setPassword(String password) {
-		if ( password.length() >= 6 || password.length() <= 13 )
+		if (password.length() >= 6 || password.length() <= 13)
 			this.password = password;
 	}
 

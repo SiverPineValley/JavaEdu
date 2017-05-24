@@ -1,8 +1,18 @@
 package oop.java.JavaEdu;
 
+import java.util.ArrayList;
+
 public class Chapter extends JavaEdu {
-	Quiz[] quiz;
-	Explanation[] explanation;
+	private String chapterInfo;
+	ArrayList<Quiz> quiz;
+	ArrayList<Explanation> explanation;
 	
+	public Chapter (String chapterInfo) {
+		this.chapterInfo = chapterInfo;
+	}
+
+	public String getChapterInfo() {
+		return chapterInfo;
+	}
 	
 }

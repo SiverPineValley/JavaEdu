@@ -1,6 +1,8 @@
 package oop.java.JavaEdu;
 
-public abstract class Quiz extends Chapter {
+import java.io.Serializable;
+
+public abstract class Quiz extends Chapter  implements Serializable {
 	String quiz;
 	String userAnswer;
 	String answer;

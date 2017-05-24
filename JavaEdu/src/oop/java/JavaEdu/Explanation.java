@@ -1,5 +1,9 @@
 package oop.java.JavaEdu;
 
-public class Explanation extends Chapter {
+import java.io.Serializable;
 
+public abstract class Explanation extends Chapter  implements Serializable  {
+	
+	
+	
 }
