@@ -43,7 +43,7 @@ public class User extends JavaEdu {
 	}
 
 	public void setPassword(String password) {
-		if (password != null)
+		if ( password.length() >= 6 || password.length() <= 13 )
 			this.password = password;
 	}
 
