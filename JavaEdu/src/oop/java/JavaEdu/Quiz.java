@@ -2,7 +2,7 @@ package oop.java.JavaEdu;
 
 import java.io.Serializable;
 
-public abstract class Quiz extends Chapter  implements Serializable {
+public abstract class Quiz implements Serializable {
 	String quiz;
 	String userAnswer;
 	String answer;

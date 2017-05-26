@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 import javax.swing.JOptionPane;
 
-public class User extends JavaEdu implements Serializable {
+public class User implements Serializable {
 	private double[] quizPoint;
 	private String name;
 	private String id;

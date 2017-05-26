@@ -2,7 +2,7 @@ package oop.java.JavaEdu;
 
 import java.util.ArrayList;
 
-public class Chapter extends JavaEdu {
+public class Chapter {
 	private String chapterInfo;
 	ArrayList<Quiz> quiz;
 	ArrayList<Explanation> explanation;
