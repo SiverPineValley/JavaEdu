@@ -10,7 +10,7 @@ import java.io.Serializable;
 import javax.swing.JOptionPane;
 
 public class User implements Serializable {
-	private double[] quizPoint;
+	private double[] quizPoint = new double[6];
 	private String name;
 	private String id;
 	private String password;
@@ -20,6 +20,7 @@ public class User implements Serializable {
 		this.id = id;
 		this.password = password;
 	}
+	public User(){}
 
 	public double[] getQuizPoint() {
 		return quizPoint;

@@ -20,15 +20,15 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class SignIn extends JFrame {
+public class SignUp extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField nameField;
+	private JTextField idField;
+	private JTextField passwordField;
 
-	public SignIn() {
-		setTitle("Sign in");
+	public SignUp() {
+		setTitle("Sign up");
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -36,25 +36,25 @@ public class SignIn extends JFrame {
 
 		JLabel lblName = new JLabel("Name : ");
 
-		textField = new JTextField();
-		textField.setColumns(10);
+		nameField = new JTextField();
+		nameField.setColumns(10);
 
 		JLabel lblStudentsId = new JLabel("Students Id : ");
 
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
+		idField = new JTextField();
+		idField.setColumns(10);
 
 		JLabel lblNewLabel = new JLabel("Password : ");
 
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
+		passwordField = new JTextField();
+		passwordField.setColumns(10);
 
-		JButton btnNewButton = new JButton("Sign in");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton signUp = new JButton("Sign up");
+		signUp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String name = textField.getText();
-				String id = textField_1.getText();
-				String password = textField_2.getText();
+				String name = nameField.getText();
+				String id = idField.getText();
+				String password = passwordField.getText();
 
 				if (name.length() == 0)
 					JOptionPane.showMessageDialog(null, "No name", "Error", JOptionPane.INFORMATION_MESSAGE);
@@ -80,32 +80,32 @@ public class SignIn extends JFrame {
 						.addPreferredGap(ComponentPlacement.UNRELATED)
 						.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
 								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+										.addComponent(nameField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
 												GroupLayout.PREFERRED_SIZE)
-										.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+										.addComponent(idField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
 												GroupLayout.PREFERRED_SIZE))
-								.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+								.addComponent(passwordField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
 										GroupLayout.PREFERRED_SIZE))
 						.addGap(18)
-						.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE)
+						.addComponent(signUp, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE)
 						.addContainerGap(54, Short.MAX_VALUE)));
 		gl_contentPane.setVerticalGroup(gl_contentPane.createParallelGroup(Alignment.LEADING).addGroup(gl_contentPane
 				.createSequentialGroup().addGap(47)
 				.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
 								.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE).addComponent(lblName)
-										.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+										.addComponent(nameField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
 												GroupLayout.PREFERRED_SIZE))
 								.addGap(18)
 								.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-										.addComponent(lblStudentsId).addComponent(textField_1,
+										.addComponent(lblStudentsId).addComponent(idField,
 												GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
 												GroupLayout.PREFERRED_SIZE))
 								.addGap(18)
 								.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-										.addComponent(lblNewLabel).addComponent(textField_2, GroupLayout.PREFERRED_SIZE,
+										.addComponent(lblNewLabel).addComponent(passwordField, GroupLayout.PREFERRED_SIZE,
 												GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-						.addComponent(btnNewButton, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 104,
+						.addComponent(signUp, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 104,
 								GroupLayout.PREFERRED_SIZE))
 				.addContainerGap(100, Short.MAX_VALUE)));
 		contentPane.setLayout(gl_contentPane);

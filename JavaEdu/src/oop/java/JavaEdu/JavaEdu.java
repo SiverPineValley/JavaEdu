@@ -1,18 +1,27 @@
 package oop.java.JavaEdu;
 
+import java.awt.EventQueue;
+
+import oop.java.JavaEdu.Main.MainFrame;
+
 public class JavaEdu {
 	/*
-	 *		Initial Variables
+	 * In here, the program is running on.
 	 */
 	
-	public static User park = new User("parkjongin", "201420999", "12345678" );
 	
-	public static Chapter classeObject = new Chapter("Class and Object");
-	public static Chapter inheritance = new Chapter("Inheritance");
-	public static Chapter polymorphism = new Chapter("Polymorphism");
-	public static Chapter abstractClass = new Chapter("Abstraction Class");
-	public static Chapter interfaces = new Chapter("Interface");
-	public static Chapter gui = new Chapter("GUI");
-	public static Chapter fileIO = new Chapter("FileIO");
-
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					MainFrame frame = new MainFrame();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	
+	
 }
