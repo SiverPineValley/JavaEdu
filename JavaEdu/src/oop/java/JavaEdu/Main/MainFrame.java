@@ -16,8 +16,12 @@ import java.awt.CardLayout;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.GroupLayout;
+import javax.swing.ImageIcon;
 import javax.swing.GroupLayout.Alignment;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
+
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JPasswordField;
@@ -46,6 +50,7 @@ public class MainFrame extends JFrame {
 	private Chapter selectedChapter;
 	private JTextField idText;
 	private JPasswordField passwordText;
+	private String imgName;
 
 	// Test account
 	private User Admin = new User("Admin", "999999999", "12345678");
@@ -56,6 +61,7 @@ public class MainFrame extends JFrame {
 	private Chapter abstractInterface = new Chapter("Abstraction Class and Interfaces");
 	private Chapter gui = new Chapter("GUI");
 	private Chapter fileIO = new Chapter("FileIO");
+	private int currentExpage = 1;
 
 	public MainFrame() {
 		getContentPane().setLayout(new CardLayout(0, 0));
@@ -71,13 +77,13 @@ public class MainFrame extends JFrame {
 
 		JLabel nameIdentifier = new JLabel("Name : ");
 		nameIdentifier.setFont(new Font("MS Reference Sans Serif", Font.PLAIN, 15));
-		
+
 		JLabel idIdentifier1 = new JLabel("ID : ");
 		idIdentifier1.setFont(new Font("MS Reference Sans Serif", Font.PLAIN, 15));
-		
+
 		JLabel nameIdentifier1 = new JLabel("Name : ");
 		nameIdentifier1.setFont(new Font("MS Reference Sans Serif", Font.PLAIN, 15));
-		
+
 		JLabel chapterIdentifier = new JLabel("Selected Chapter : ");
 		chapterIdentifier.setFont(new Font("MS Reference Sans Serif", Font.PLAIN, 15));
 
@@ -127,8 +133,7 @@ public class MainFrame extends JFrame {
 					nameIdentifier1.setText("Name : " + selectedUser.getName());
 					chapterIdentifier.setText("Selected Chapter : " + selectedChapter.getChapterInfo());
 					cardLayoutSet.show(getContentPane(), "MaterialSelect");
-					
-					
+
 				}
 			}
 		});
@@ -172,8 +177,25 @@ public class MainFrame extends JFrame {
 		getContentPane().add(MaterialSelect, "MaterialSelect");
 
 		JButton btnQuiz = new JButton("Quiz");
+		JLabel pageIdentifier = new JLabel("page");
 
 		JButton btnExplanation = new JButton("Explanation");
+		btnExplanation.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				if (selectedChapter.equals(abstractInterface)) {
+					imgName = "ExplanationSource\\AbstractClassandInterfaces\\ab1.png";
+					pageIdentifier.setText("1/20");
+				} else if (selectedChapter.equals(gui)) {
+					imgName = "ExplanationSource\\Gui\\gui1.png";
+					pageIdentifier.setText("1/55");
+				} else if (selectedChapter.equals(fileIO)) {
+					imgName = "ExplanationSource\\FileIO\\io1.png";
+					pageIdentifier.setText("1/20");
+				}
+				cardLayoutSet.show(getContentPane(), "explanationFrame");
+			}
+		});
 
 		JButton btnProgress = new JButton("Progress");
 
@@ -185,49 +207,40 @@ public class MainFrame extends JFrame {
 
 			}
 		});
-		
+
 		GroupLayout gl_MaterialSelect = new GroupLayout(MaterialSelect);
-		gl_MaterialSelect.setHorizontalGroup(
-			gl_MaterialSelect.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_MaterialSelect.createSequentialGroup()
-					.addGroup(gl_MaterialSelect.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_MaterialSelect.createSequentialGroup()
-							.addGap(80)
-							.addGroup(gl_MaterialSelect.createParallelGroup(Alignment.TRAILING)
-								.addComponent(btnBack)
-								.addGroup(gl_MaterialSelect.createParallelGroup(Alignment.LEADING, false)
-									.addGroup(gl_MaterialSelect.createSequentialGroup()
-										.addComponent(btnQuiz, GroupLayout.PREFERRED_SIZE, 271, GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-										.addComponent(btnExplanation, GroupLayout.PREFERRED_SIZE, 269, GroupLayout.PREFERRED_SIZE))
-									.addComponent(btnProgress, GroupLayout.PREFERRED_SIZE, 634, GroupLayout.PREFERRED_SIZE))))
-						.addGroup(gl_MaterialSelect.createSequentialGroup()
-							.addGap(71)
-							.addGroup(gl_MaterialSelect.createParallelGroup(Alignment.LEADING)
-								.addComponent(nameIdentifier1)
-								.addComponent(idIdentifier1)
-								.addComponent(chapterIdentifier))))
-					.addContainerGap(70, Short.MAX_VALUE))
-		);
-		gl_MaterialSelect.setVerticalGroup(
-			gl_MaterialSelect.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_MaterialSelect.createSequentialGroup()
-					.addGap(22)
-					.addComponent(idIdentifier1)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(nameIdentifier1)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(chapterIdentifier)
-					.addGap(34)
-					.addGroup(gl_MaterialSelect.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnQuiz, GroupLayout.PREFERRED_SIZE, 205, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnExplanation, GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(btnProgress, GroupLayout.PREFERRED_SIZE, 88, GroupLayout.PREFERRED_SIZE)
-					.addGap(65)
-					.addComponent(btnBack)
-					.addGap(57))
-		);
+		gl_MaterialSelect.setHorizontalGroup(gl_MaterialSelect.createParallelGroup(
+				Alignment.LEADING)
+				.addGroup(gl_MaterialSelect.createSequentialGroup().addGroup(gl_MaterialSelect
+						.createParallelGroup(Alignment.LEADING).addGroup(gl_MaterialSelect.createSequentialGroup()
+								.addGap(80).addGroup(gl_MaterialSelect.createParallelGroup(Alignment.TRAILING)
+										.addComponent(btnBack)
+										.addGroup(gl_MaterialSelect
+												.createParallelGroup(Alignment.LEADING, false)
+												.addGroup(gl_MaterialSelect.createSequentialGroup()
+														.addComponent(btnQuiz, GroupLayout.PREFERRED_SIZE, 271,
+																GroupLayout.PREFERRED_SIZE)
+														.addPreferredGap(ComponentPlacement.RELATED,
+																GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+														.addComponent(btnExplanation, GroupLayout.PREFERRED_SIZE, 269,
+																GroupLayout.PREFERRED_SIZE))
+												.addComponent(btnProgress, GroupLayout.PREFERRED_SIZE, 634,
+														GroupLayout.PREFERRED_SIZE))))
+						.addGroup(gl_MaterialSelect.createSequentialGroup().addGap(71)
+								.addGroup(gl_MaterialSelect.createParallelGroup(Alignment.LEADING)
+										.addComponent(nameIdentifier1).addComponent(idIdentifier1)
+										.addComponent(chapterIdentifier))))
+						.addContainerGap(70, Short.MAX_VALUE)));
+		gl_MaterialSelect.setVerticalGroup(gl_MaterialSelect.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_MaterialSelect.createSequentialGroup().addGap(22).addComponent(idIdentifier1)
+						.addPreferredGap(ComponentPlacement.RELATED).addComponent(nameIdentifier1)
+						.addPreferredGap(ComponentPlacement.RELATED).addComponent(chapterIdentifier).addGap(34)
+						.addGroup(gl_MaterialSelect.createParallelGroup(Alignment.BASELINE)
+								.addComponent(btnQuiz, GroupLayout.PREFERRED_SIZE, 205, GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnExplanation, GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE))
+						.addPreferredGap(ComponentPlacement.UNRELATED)
+						.addComponent(btnProgress, GroupLayout.PREFERRED_SIZE, 88, GroupLayout.PREFERRED_SIZE)
+						.addGap(65).addComponent(btnBack).addGap(57)));
 		MaterialSelect.setLayout(gl_MaterialSelect);
 		setTitle("JavaEdu");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -325,6 +338,102 @@ public class MainFrame extends JFrame {
 								.addComponent(signUp))
 						.addContainerGap(243, Short.MAX_VALUE)));
 		Login.setLayout(gl_Login);
+
+		JPanel Progress = new JPanel();
+		getContentPane().add(Progress, "Progress");
+
+		JPanel explanationFrame = new JPanel() {
+			public void paintComponent(Graphics g) {
+				super.paintComponent(g);
+				Image img = new ImageIcon(imgName).getImage();
+				g.drawImage(img, 0, 0, null);
+				setOpaque(false);
+			}
+		};
+		getContentPane().add(explanationFrame, "explanationFrame");
+		
+		JButton btnBack_1 = new JButton("Back");
+		btnBack_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cardLayoutSet.show(getContentPane(), "MaterialSelect");
+				currentExpage = 1;
+			}
+		});
+
+		JButton lastEx = new JButton("<");
+		lastEx.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (currentExpage == 1) cardLayoutSet.show(getContentPane(), "MaterialSelect");
+				if (selectedChapter.equals(abstractInterface)) {
+					if (currentExpage > 1) {
+						currentExpage--;
+						imgName = "ExplanationSource\\AbstractClassandInterfaces\\ab" + currentExpage + ".png";
+						explanationFrame.repaint();
+					}
+					pageIdentifier.setText(currentExpage + "/20");
+				}
+				else if (selectedChapter.equals(gui)) {
+					if (currentExpage > 1) {
+						currentExpage--;
+						imgName = "ExplanationSource\\Gui\\gui" + currentExpage + ".png";
+						explanationFrame.repaint();
+					}
+					pageIdentifier.setText(currentExpage + "/55");
+				}
+				else if (selectedChapter.equals(fileIO)) {
+					if (currentExpage > 1) {
+						currentExpage--;
+						imgName = "ExplanationSource\\FileIO\\io" + currentExpage + ".png";
+						explanationFrame.repaint();
+					}
+					pageIdentifier.setText(currentExpage + "/20");
+				}
+				
+			}
+		});
+
+		JButton nextEx = new JButton(">");
+		nextEx.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (selectedChapter.equals(abstractInterface)) {
+					if (currentExpage < 20) {
+						currentExpage++;
+						imgName = "ExplanationSource\\AbstractClassandInterfaces\\ab" + currentExpage + ".png";
+						explanationFrame.repaint();
+					}
+					pageIdentifier.setText(currentExpage + "/20");
+				}
+				else if (selectedChapter.equals(gui)) {
+					if (currentExpage < 55) {
+						currentExpage++;
+						imgName = "ExplanationSource\\Gui\\gui" + currentExpage + ".png";
+						explanationFrame.repaint();
+					}
+					pageIdentifier.setText(currentExpage + "/55");
+				}
+				else if (selectedChapter.equals(fileIO)) {
+					if (currentExpage < 20) {
+						currentExpage++;
+						imgName = "ExplanationSource\\FileIO\\io" + currentExpage + ".png";
+						explanationFrame.repaint();
+					}
+					pageIdentifier.setText(currentExpage + "/20");
+				}
+
+			}
+		});
+
+		GroupLayout gl_explanationFrame = new GroupLayout(explanationFrame);
+		gl_explanationFrame.setHorizontalGroup(gl_explanationFrame.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_explanationFrame.createSequentialGroup().addComponent(btnBack_1).addGap(126)
+						.addComponent(lastEx).addGap(149).addComponent(pageIdentifier)
+						.addPreferredGap(ComponentPlacement.RELATED, 148, Short.MAX_VALUE).addComponent(nextEx)
+						.addGap(161)));
+		gl_explanationFrame.setVerticalGroup(gl_explanationFrame.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_explanationFrame.createSequentialGroup().addContainerGap(538, Short.MAX_VALUE)
+						.addGroup(gl_explanationFrame.createParallelGroup(Alignment.BASELINE).addComponent(btnBack_1)
+								.addComponent(lastEx).addComponent(nextEx).addComponent(pageIdentifier))));
+		explanationFrame.setLayout(gl_explanationFrame);
 
 	} // constructor
 } // class

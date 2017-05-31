@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 
 public class User implements Serializable {
 	private double[] quizPoint = new double[6];
+	//private int[] chapterProgress = new int[6];
 	private String name;
 	private String id;
 	private String password;
