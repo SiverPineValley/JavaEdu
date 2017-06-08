@@ -66,6 +66,9 @@ public class SignUp extends JFrame {
 				else if (password.length() < 6 || password.length() > 13)
 					JOptionPane.showMessageDialog(null, "Password length should be from 6 to 13", "Error",
 							JOptionPane.INFORMATION_MESSAGE);
+				else if ( UserManage.searchUser(id) != null )
+					JOptionPane.showMessageDialog(null, "Id id already existed", "Error",
+							JOptionPane.INFORMATION_MESSAGE);
 				else {
 					UserManage.UsertoFile(new User(name, id, password));
 					dispose();
