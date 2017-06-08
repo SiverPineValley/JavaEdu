@@ -266,6 +266,14 @@ public class MainFrame extends JFrame {
 
 				String id = idText.getText();
 				String pass = passwordText.getText();
+				
+				int t;
+				for(t=0; t<9; t++){
+					if(id.charAt(t)<30 || id.charAt(t)>39){
+						t = 100;
+						break;
+					}
+				}
 
 				if (id.length() == 0 || pass.length() == 0)
 					JOptionPane.showMessageDialog(null, "Id or Password is Empty!!", "Fail",
@@ -276,6 +284,10 @@ public class MainFrame extends JFrame {
 				else if (pass.length() < 6 || pass.length() > 13)
 					JOptionPane.showMessageDialog(null, "Password length is incorrect!!", "Fail",
 							JOptionPane.INFORMATION_MESSAGE);
+				else if (t == 100){				
+					JOptionPane.showMessageDialog(null, "Only number can be input in Id!!", "Fail",
+							JOptionPane.INFORMATION_MESSAGE);
+				}
 				else {
 					userLoad = UserManage.UserfromFile();
 					selectedUser = UserManage.searchUser(id);
