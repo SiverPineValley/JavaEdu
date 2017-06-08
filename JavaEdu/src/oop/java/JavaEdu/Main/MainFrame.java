@@ -62,8 +62,18 @@ public class MainFrame extends JFrame {
 	private Chapter gui = new Chapter("GUI");
 	private Chapter fileIO = new Chapter("FileIO");
 	private int currentExpage = 1;
-
+	
 	public MainFrame() {
+		/*
+		 * This part is set the total page of each explanation
+		 */
+		abstractInterface.setExplanation(new Explanation());
+		gui.setExplanation(new Explanation());
+		fileIO.setExplanation(new Explanation());
+		abstractInterface.getExplanation().setTotalProgress(20);
+		gui.getExplanation().setTotalProgress(55);
+		fileIO.getExplanation().setTotalProgress(20);
+		
 		getContentPane().setLayout(new CardLayout(0, 0));
 		cardLayoutSet = (CardLayout) (getContentPane().getLayout());
 		JPanel Login = new JPanel();
@@ -185,13 +195,13 @@ public class MainFrame extends JFrame {
 				
 				if (selectedChapter.equals(abstractInterface)) {
 					imgName = "ExplanationSource\\AbstractClassandInterfaces\\ab1.png";
-					pageIdentifier.setText("1/20");
+					pageIdentifier.setText("1/"+abstractInterface.getExplanation().getTotalProgress());
 				} else if (selectedChapter.equals(gui)) {
 					imgName = "ExplanationSource\\Gui\\gui1.png";
-					pageIdentifier.setText("1/55");
+					pageIdentifier.setText("1/"+gui.getExplanation().getTotalProgress());
 				} else if (selectedChapter.equals(fileIO)) {
 					imgName = "ExplanationSource\\FileIO\\io1.png";
-					pageIdentifier.setText("1/20");
+					pageIdentifier.setText("1/"+fileIO.getExplanation().getTotalProgress());
 				}
 				cardLayoutSet.show(getContentPane(), "explanationFrame");
 			}
@@ -269,7 +279,7 @@ public class MainFrame extends JFrame {
 				
 				int t;
 				for(t=0; t<9; t++){
-					if(id.charAt(t)<30 || id.charAt(t)>39){
+					if(id.charAt(t)<48 || id.charAt(t)>57){
 						t = 100;
 						break;
 					}
@@ -382,7 +392,7 @@ public class MainFrame extends JFrame {
 						imgName = "ExplanationSource\\AbstractClassandInterfaces\\ab" + currentExpage + ".png";
 						explanationFrame.repaint();
 					}
-					pageIdentifier.setText(currentExpage + "/20");
+					pageIdentifier.setText(currentExpage + "/" + abstractInterface.getExplanation().getTotalProgress());
 				}
 				else if (selectedChapter.equals(gui)) {
 					if (currentExpage > 1) {
@@ -390,7 +400,7 @@ public class MainFrame extends JFrame {
 						imgName = "ExplanationSource\\Gui\\gui" + currentExpage + ".png";
 						explanationFrame.repaint();
 					}
-					pageIdentifier.setText(currentExpage + "/55");
+					pageIdentifier.setText(currentExpage + "/" + gui.getExplanation().getTotalProgress());
 				}
 				else if (selectedChapter.equals(fileIO)) {
 					if (currentExpage > 1) {
@@ -398,7 +408,7 @@ public class MainFrame extends JFrame {
 						imgName = "ExplanationSource\\FileIO\\io" + currentExpage + ".png";
 						explanationFrame.repaint();
 					}
-					pageIdentifier.setText(currentExpage + "/20");
+					pageIdentifier.setText(currentExpage + "/" + fileIO.getExplanation().getTotalProgress());
 				}
 				
 			}

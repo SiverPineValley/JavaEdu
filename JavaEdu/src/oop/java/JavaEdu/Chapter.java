@@ -19,6 +19,10 @@ public class Chapter {
 		return explanation;
 	}
 
+	public void setExplanation(Explanation explanation) {
+		this.explanation = explanation;
+	}
+
 	public Chapter (String chapterInfo) {
 		this.chapterInfo = chapterInfo;
 	}
