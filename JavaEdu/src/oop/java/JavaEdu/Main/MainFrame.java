@@ -63,7 +63,16 @@ public class MainFrame extends JFrame {
 	private Chapter gui = new Chapter("GUI");
 	private Chapter fileIO = new Chapter("FileIO");
 	private int currentExpage = 1;
+	private int lastpage = 1;
 	
+	public int getCurrentExpage() {
+		return currentExpage;
+	}
+
+	public void setCurrentExpage(int currentExpage) {
+		this.currentExpage = currentExpage;
+	}
+
 	public MainFrame() {
 		/*
 		 * This part is set the total page of each explanation
@@ -213,7 +222,7 @@ public class MainFrame extends JFrame {
 			}
 		});
 
-		JButton btnProgress = new JButton("Progress");
+		
 
 		JButton btnBack = new JButton("Back");
 		btnBack.addActionListener(new ActionListener() {
@@ -224,40 +233,7 @@ public class MainFrame extends JFrame {
 			}
 		});
 
-		GroupLayout gl_MaterialSelect = new GroupLayout(MaterialSelect);
-		gl_MaterialSelect.setHorizontalGroup(gl_MaterialSelect.createParallelGroup(
-				Alignment.LEADING)
-				.addGroup(gl_MaterialSelect.createSequentialGroup().addGroup(gl_MaterialSelect
-						.createParallelGroup(Alignment.LEADING).addGroup(gl_MaterialSelect.createSequentialGroup()
-								.addGap(80).addGroup(gl_MaterialSelect.createParallelGroup(Alignment.TRAILING)
-										.addComponent(btnBack)
-										.addGroup(gl_MaterialSelect
-												.createParallelGroup(Alignment.LEADING, false)
-												.addGroup(gl_MaterialSelect.createSequentialGroup()
-														.addComponent(btnQuiz, GroupLayout.PREFERRED_SIZE, 271,
-																GroupLayout.PREFERRED_SIZE)
-														.addPreferredGap(ComponentPlacement.RELATED,
-																GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-														.addComponent(btnExplanation, GroupLayout.PREFERRED_SIZE, 269,
-																GroupLayout.PREFERRED_SIZE))
-												.addComponent(btnProgress, GroupLayout.PREFERRED_SIZE, 634,
-														GroupLayout.PREFERRED_SIZE))))
-						.addGroup(gl_MaterialSelect.createSequentialGroup().addGap(71)
-								.addGroup(gl_MaterialSelect.createParallelGroup(Alignment.LEADING)
-										.addComponent(nameIdentifier1).addComponent(idIdentifier1)
-										.addComponent(chapterIdentifier))))
-						.addContainerGap(70, Short.MAX_VALUE)));
-		gl_MaterialSelect.setVerticalGroup(gl_MaterialSelect.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_MaterialSelect.createSequentialGroup().addGap(22).addComponent(idIdentifier1)
-						.addPreferredGap(ComponentPlacement.RELATED).addComponent(nameIdentifier1)
-						.addPreferredGap(ComponentPlacement.RELATED).addComponent(chapterIdentifier).addGap(34)
-						.addGroup(gl_MaterialSelect.createParallelGroup(Alignment.BASELINE)
-								.addComponent(btnQuiz, GroupLayout.PREFERRED_SIZE, 205, GroupLayout.PREFERRED_SIZE)
-								.addComponent(btnExplanation, GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE))
-						.addPreferredGap(ComponentPlacement.UNRELATED)
-						.addComponent(btnProgress, GroupLayout.PREFERRED_SIZE, 88, GroupLayout.PREFERRED_SIZE)
-						.addGap(65).addComponent(btnBack).addGap(57)));
-		MaterialSelect.setLayout(gl_MaterialSelect);
+		
 		setTitle("JavaEdu");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
@@ -367,9 +343,6 @@ public class MainFrame extends JFrame {
 						.addContainerGap(243, Short.MAX_VALUE)));
 		Login.setLayout(gl_Login);
 
-		JPanel Progress = new JPanel();
-		getContentPane().add(Progress, "Progress");
-
 		JPanel explanationFrame = new JPanel() {
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
@@ -426,6 +399,7 @@ public class MainFrame extends JFrame {
 				if (selectedChapter.equals(abstractInterface)) {
 					if (currentExpage < 20) {
 						currentExpage++;
+						lastpage = currentExpage;
 						imgName = "ExplanationSource\\AbstractClassandInterfaces\\ab" + currentExpage + ".png";
 						explanationFrame.repaint();
 					}
@@ -434,6 +408,7 @@ public class MainFrame extends JFrame {
 				else if (selectedChapter.equals(gui)) {
 					if (currentExpage < 55) {
 						currentExpage++;
+						lastpage = currentExpage;
 						imgName = "ExplanationSource\\Gui\\gui" + currentExpage + ".png";
 						explanationFrame.repaint();
 					}
@@ -442,6 +417,7 @@ public class MainFrame extends JFrame {
 				else if (selectedChapter.equals(fileIO)) {
 					if (currentExpage < 20) {
 						currentExpage++;
+						lastpage = currentExpage;
 						imgName = "ExplanationSource\\FileIO\\io" + currentExpage + ".png";
 						explanationFrame.repaint();
 					}
@@ -450,7 +426,48 @@ public class MainFrame extends JFrame {
 
 			}
 		});
-
+		
+		JButton btnProgress = new JButton("Progress");
+		btnProgress.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				new Progress(selectedUser, selectedChapter, lastpage).setVisible(true);
+				
+			}
+		});
+		GroupLayout gl_MaterialSelect = new GroupLayout(MaterialSelect);
+		gl_MaterialSelect.setHorizontalGroup(gl_MaterialSelect.createParallelGroup(
+				Alignment.LEADING)
+				.addGroup(gl_MaterialSelect.createSequentialGroup().addGroup(gl_MaterialSelect
+						.createParallelGroup(Alignment.LEADING).addGroup(gl_MaterialSelect.createSequentialGroup()
+								.addGap(80).addGroup(gl_MaterialSelect.createParallelGroup(Alignment.TRAILING)
+										.addComponent(btnBack)
+										.addGroup(gl_MaterialSelect
+												.createParallelGroup(Alignment.LEADING, false)
+												.addGroup(gl_MaterialSelect.createSequentialGroup()
+														.addComponent(btnQuiz, GroupLayout.PREFERRED_SIZE, 271,
+																GroupLayout.PREFERRED_SIZE)
+														.addPreferredGap(ComponentPlacement.RELATED,
+																GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+														.addComponent(btnExplanation, GroupLayout.PREFERRED_SIZE, 269,
+																GroupLayout.PREFERRED_SIZE))
+												.addComponent(btnProgress, GroupLayout.PREFERRED_SIZE, 634,
+														GroupLayout.PREFERRED_SIZE))))
+						.addGroup(gl_MaterialSelect.createSequentialGroup().addGap(71)
+								.addGroup(gl_MaterialSelect.createParallelGroup(Alignment.LEADING)
+										.addComponent(nameIdentifier1).addComponent(idIdentifier1)
+										.addComponent(chapterIdentifier))))
+						.addContainerGap(70, Short.MAX_VALUE)));
+		gl_MaterialSelect.setVerticalGroup(gl_MaterialSelect.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_MaterialSelect.createSequentialGroup().addGap(22).addComponent(idIdentifier1)
+						.addPreferredGap(ComponentPlacement.RELATED).addComponent(nameIdentifier1)
+						.addPreferredGap(ComponentPlacement.RELATED).addComponent(chapterIdentifier).addGap(34)
+						.addGroup(gl_MaterialSelect.createParallelGroup(Alignment.BASELINE)
+								.addComponent(btnQuiz, GroupLayout.PREFERRED_SIZE, 205, GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnExplanation, GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE))
+						.addPreferredGap(ComponentPlacement.UNRELATED)
+						.addComponent(btnProgress, GroupLayout.PREFERRED_SIZE, 88, GroupLayout.PREFERRED_SIZE)
+						.addGap(65).addComponent(btnBack).addGap(57)));
+		MaterialSelect.setLayout(gl_MaterialSelect);
 		GroupLayout gl_explanationFrame = new GroupLayout(explanationFrame);
 		gl_explanationFrame.setHorizontalGroup(gl_explanationFrame.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_explanationFrame.createSequentialGroup().addComponent(btnBack_1).addGap(126)
@@ -462,6 +479,9 @@ public class MainFrame extends JFrame {
 						.addGroup(gl_explanationFrame.createParallelGroup(Alignment.BASELINE).addComponent(btnBack_1)
 								.addComponent(lastEx).addComponent(nextEx).addComponent(pageIdentifier))));
 		explanationFrame.setLayout(gl_explanationFrame);
+		
+		JPanel Progress = new JPanel();
+		getContentPane().add(Progress, "name_447993655917954");
 
 	} // constructor
 } // class

@@ -71,7 +71,7 @@ public class multiple extends Quiz {
 		JPanel mpanel_1 = new JPanel(){
 			public void paintComponent(Graphics g) {
 				if (s.equals("Abstraction Class and Interfaces")) {
-					img = new ImageIcon("images.jpg").getImage();
+					img = new ImageIcon("QuizSource\\AbstractClassandInterfaces\\images.jpg").getImage();
 				} g.drawImage(img, 0, 0, null);
 			}
 		};
@@ -139,48 +139,43 @@ public class multiple extends Quiz {
 		JRadioButton rdbtnD_2 = new JRadioButton("D");
 		
 		JRadioButton rdbtnE_2 = new JRadioButton("E");
+		
+		JPanel panel_3 = new JPanel();
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
 		gl_panel_2.setHorizontalGroup(
 			gl_panel_2.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_panel_2.createSequentialGroup()
+				.addGroup(Alignment.LEADING, gl_panel_2.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(lblQ_1)
-					.addContainerGap(758, Short.MAX_VALUE))
-				.addGroup(gl_panel_2.createSequentialGroup()
-					.addContainerGap(505, Short.MAX_VALUE)
-					.addComponent(rdbtnA_2)
-					.addGap(159))
-				.addGroup(gl_panel_2.createSequentialGroup()
-					.addContainerGap(541, Short.MAX_VALUE)
-					.addComponent(rdbtnB_2)
-					.addGap(123))
-				.addGroup(gl_panel_2.createSequentialGroup()
-					.addContainerGap(515, Short.MAX_VALUE)
-					.addGroup(gl_panel_2.createParallelGroup(Alignment.TRAILING)
-						.addComponent(rdbtnD_2)
-						.addComponent(rdbtnC_2))
-					.addGap(149))
-				.addGroup(gl_panel_2.createSequentialGroup()
-					.addContainerGap(556, Short.MAX_VALUE)
-					.addComponent(rdbtnE_2)
-					.addGap(108))
+					.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
+						.addComponent(panel_3, GroupLayout.DEFAULT_SIZE, 761, Short.MAX_VALUE)
+						.addComponent(lblQ_1)
+						.addGroup(gl_panel_2.createSequentialGroup()
+							.addComponent(rdbtnA_2)
+							.addGap(100)
+							.addComponent(rdbtnB_2)
+							.addGap(99)
+							.addComponent(rdbtnC_2)
+							.addGap(108)
+							.addComponent(rdbtnD_2)
+							.addGap(104)
+							.addComponent(rdbtnE_2)))
+					.addContainerGap())
 		);
 		gl_panel_2.setVerticalGroup(
 			gl_panel_2.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_2.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(lblQ_1)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(rdbtnA_2)
-					.addGap(41)
-					.addComponent(rdbtnB_2)
-					.addGap(18)
-					.addComponent(rdbtnC_2)
-					.addGap(31)
-					.addComponent(rdbtnD_2)
-					.addGap(37)
-					.addComponent(rdbtnE_2)
-					.addContainerGap(80, Short.MAX_VALUE))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(panel_3, GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_panel_2.createParallelGroup(Alignment.BASELINE)
+						.addComponent(rdbtnA_2)
+						.addComponent(rdbtnB_2)
+						.addComponent(rdbtnC_2)
+						.addComponent(rdbtnD_2)
+						.addComponent(rdbtnE_2))
+					.addContainerGap())
 		);
 		panel_2.setLayout(gl_panel_2);
 		
