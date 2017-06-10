@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 
 import oop.java.JavaEdu.*;
 import oop.java.JavaEdu.FileIO.*;
+import oop.java.JavaEdu.Qz.quizmenu;
 
 import javax.swing.BoxLayout;
 import java.awt.CardLayout;
@@ -187,6 +188,11 @@ public class MainFrame extends JFrame {
 		getContentPane().add(MaterialSelect, "MaterialSelect");
 
 		JButton btnQuiz = new JButton("Quiz");
+		btnQuiz.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new quizmenu(selectedChapter.getChapterInfo()).getFrame().setVisible(true);
+			}
+		});
 		JLabel pageIdentifier = new JLabel("page");
 
 		JButton btnExplanation = new JButton("Explanation");
