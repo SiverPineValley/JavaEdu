@@ -69,10 +69,9 @@ public class UserManage {
 					os.close();
 					return temp;
 				}
-				os.close();
-				return null;
 			}
-
+			os.close();
+			return new User();
 		} catch (Exception e) {
 
 		}

@@ -53,8 +53,6 @@ public class MainFrame extends JFrame {
 	private JPasswordField passwordText;
 	private String imgName;
 
-	// Test account
-	private User Admin = new User("Admin", "999999999", "12345678");
 	// Initializing Chapter
 	private Chapter classObject = new Chapter("Class and Object");
 	private Chapter inheritance = new Chapter("Inheritance");
@@ -64,7 +62,7 @@ public class MainFrame extends JFrame {
 	private Chapter fileIO = new Chapter("FileIO");
 	private int currentExpage = 1;
 	private int lastpage = 1;
-	
+
 	public int getCurrentExpage() {
 		return currentExpage;
 	}
@@ -83,7 +81,7 @@ public class MainFrame extends JFrame {
 		abstractInterface.getExplanation().setTotalProgress(20);
 		gui.getExplanation().setTotalProgress(55);
 		fileIO.getExplanation().setTotalProgress(20);
-		
+
 		getContentPane().setLayout(new CardLayout(0, 0));
 		cardLayoutSet = (CardLayout) (getContentPane().getLayout());
 		JPanel Login = new JPanel();
@@ -207,22 +205,20 @@ public class MainFrame extends JFrame {
 		JButton btnExplanation = new JButton("Explanation");
 		btnExplanation.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				if (selectedChapter.equals(abstractInterface)) {
 					imgName = "ExplanationSource\\AbstractClassandInterfaces\\ab1.png";
-					pageIdentifier.setText("1/"+abstractInterface.getExplanation().getTotalProgress());
+					pageIdentifier.setText("1/" + abstractInterface.getExplanation().getTotalProgress());
 				} else if (selectedChapter.equals(gui)) {
 					imgName = "ExplanationSource\\Gui\\gui1.png";
-					pageIdentifier.setText("1/"+gui.getExplanation().getTotalProgress());
+					pageIdentifier.setText("1/" + gui.getExplanation().getTotalProgress());
 				} else if (selectedChapter.equals(fileIO)) {
 					imgName = "ExplanationSource\\FileIO\\io1.png";
-					pageIdentifier.setText("1/"+fileIO.getExplanation().getTotalProgress());
+					pageIdentifier.setText("1/" + fileIO.getExplanation().getTotalProgress());
 				}
 				cardLayoutSet.show(getContentPane(), "explanationFrame");
 			}
 		});
-
-		
 
 		JButton btnBack = new JButton("Back");
 		btnBack.addActionListener(new ActionListener() {
@@ -233,7 +229,6 @@ public class MainFrame extends JFrame {
 			}
 		});
 
-		
 		setTitle("JavaEdu");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
@@ -258,15 +253,16 @@ public class MainFrame extends JFrame {
 
 				String id = idText.getText();
 				String pass = passwordText.getText();
-				
-				int t;
-				for(t=0; t<9; t++){
-					if(id.charAt(t)<48 || id.charAt(t)>57){
-						t = 100;
-						break;
+
+				int t = 0;
+				if (id.length() == 9) {
+					for (t = 0; t < 9; t++) {
+						if (id.charAt(t) < 48 || id.charAt(t) > 57) {
+							t = 100;
+							break;
+						}
 					}
 				}
-
 				if (id.length() == 0 || pass.length() == 0)
 					JOptionPane.showMessageDialog(null, "Id or Password is Empty!!", "Fail",
 							JOptionPane.INFORMATION_MESSAGE);
@@ -276,24 +272,29 @@ public class MainFrame extends JFrame {
 				else if (pass.length() < 6 || pass.length() > 13)
 					JOptionPane.showMessageDialog(null, "Password length is incorrect!!", "Fail",
 							JOptionPane.INFORMATION_MESSAGE);
-				else if (t == 100){				
+				else if (t == 100) {
 					JOptionPane.showMessageDialog(null, "Only number can be input in Id!!", "Fail",
 							JOptionPane.INFORMATION_MESSAGE);
-				}
-				else {
+				} else {
 					userLoad = UserManage.UserfromFile();
 					selectedUser = UserManage.searchUser(id);
 
-					if (selectedUser.equals(null))
+					if (selectedUser.getId() == null)
 						JOptionPane.showMessageDialog(null, "Id cannot find. Please Sign up!!!", "Fail",
 								JOptionPane.INFORMATION_MESSAGE);
 					else {
-						idText.setText("");
-						passwordText.setText("");
-						idIdentifier.setText("ID : " + selectedUser.getId());
-						nameIdentifier.setText("Name : " + selectedUser.getName());
 
-						cardLayoutSet.show(getContentPane(), "ChapterSelect");
+						if (passwordText.getText().equals(selectedUser.getPassword())) {
+							idText.setText("");
+							passwordText.setText("");
+							idIdentifier.setText("ID : " + selectedUser.getId());
+							nameIdentifier.setText("Name : " + selectedUser.getName());
+
+							cardLayoutSet.show(getContentPane(), "ChapterSelect");
+						} else
+							JOptionPane.showMessageDialog(null, "Password is not correct!!", "Fail",
+									JOptionPane.INFORMATION_MESSAGE);
+
 					}
 
 				}
@@ -352,7 +353,7 @@ public class MainFrame extends JFrame {
 			}
 		};
 		getContentPane().add(explanationFrame, "explanationFrame");
-		
+
 		JButton btnBack_1 = new JButton("Back");
 		btnBack_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -364,7 +365,8 @@ public class MainFrame extends JFrame {
 		JButton lastEx = new JButton("<");
 		lastEx.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (currentExpage == 1) cardLayoutSet.show(getContentPane(), "MaterialSelect");
+				if (currentExpage == 1)
+					cardLayoutSet.show(getContentPane(), "MaterialSelect");
 				if (selectedChapter.equals(abstractInterface)) {
 					if (currentExpage > 1) {
 						currentExpage--;
@@ -372,16 +374,14 @@ public class MainFrame extends JFrame {
 						explanationFrame.repaint();
 					}
 					pageIdentifier.setText(currentExpage + "/" + abstractInterface.getExplanation().getTotalProgress());
-				}
-				else if (selectedChapter.equals(gui)) {
+				} else if (selectedChapter.equals(gui)) {
 					if (currentExpage > 1) {
 						currentExpage--;
 						imgName = "ExplanationSource\\Gui\\gui" + currentExpage + ".png";
 						explanationFrame.repaint();
 					}
 					pageIdentifier.setText(currentExpage + "/" + gui.getExplanation().getTotalProgress());
-				}
-				else if (selectedChapter.equals(fileIO)) {
+				} else if (selectedChapter.equals(fileIO)) {
 					if (currentExpage > 1) {
 						currentExpage--;
 						imgName = "ExplanationSource\\FileIO\\io" + currentExpage + ".png";
@@ -389,7 +389,7 @@ public class MainFrame extends JFrame {
 					}
 					pageIdentifier.setText(currentExpage + "/" + fileIO.getExplanation().getTotalProgress());
 				}
-				
+
 			}
 		});
 
@@ -404,8 +404,7 @@ public class MainFrame extends JFrame {
 						explanationFrame.repaint();
 					}
 					pageIdentifier.setText(currentExpage + "/20");
-				}
-				else if (selectedChapter.equals(gui)) {
+				} else if (selectedChapter.equals(gui)) {
 					if (currentExpage < 55) {
 						currentExpage++;
 						lastpage = currentExpage;
@@ -413,8 +412,7 @@ public class MainFrame extends JFrame {
 						explanationFrame.repaint();
 					}
 					pageIdentifier.setText(currentExpage + "/55");
-				}
-				else if (selectedChapter.equals(fileIO)) {
+				} else if (selectedChapter.equals(fileIO)) {
 					if (currentExpage < 20) {
 						currentExpage++;
 						lastpage = currentExpage;
@@ -426,12 +424,12 @@ public class MainFrame extends JFrame {
 
 			}
 		});
-		
+
 		JButton btnProgress = new JButton("Progress");
 		btnProgress.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				new Progress(selectedUser, selectedChapter, lastpage).setVisible(true);
-				
+
 			}
 		});
 		GroupLayout gl_MaterialSelect = new GroupLayout(MaterialSelect);
@@ -479,7 +477,7 @@ public class MainFrame extends JFrame {
 						.addGroup(gl_explanationFrame.createParallelGroup(Alignment.BASELINE).addComponent(btnBack_1)
 								.addComponent(lastEx).addComponent(nextEx).addComponent(pageIdentifier))));
 		explanationFrame.setLayout(gl_explanationFrame);
-		
+
 		JPanel Progress = new JPanel();
 		getContentPane().add(Progress, "name_447993655917954");
 
