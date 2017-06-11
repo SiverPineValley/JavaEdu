@@ -215,8 +215,16 @@ public class MainFrame extends JFrame {
 				} else if (selectedChapter.equals(fileIO)) {
 					imgName = "ExplanationSource\\FileIO\\io1.png";
 					pageIdentifier.setText("1/" + fileIO.getExplanation().getTotalProgress());
+				} else if (selectedChapter.equals(classObject)) {
+					imgName = "ExplanationSource\\ClassObject\\cla1.png";
+					pageIdentifier.setText("1/" + classObject.getExplanation().getTotalProgress());
+				} else if (selectedChapter.equals(inheritance)) {
+					imgName = "ExplanationSource\\Inheritance\\inh1.png";
+					pageIdentifier.setText("1/" + inheritance.getExplanation().getTotalProgress());
+				} else if (selectedChapter.equals(polymorphism)) {
+					imgName = "ExplanationSource\\Polymorphism\\pol1.png";
+					pageIdentifier.setText("1/" + polymorphism.getExplanation().getTotalProgress());
 				}
-				cardLayoutSet.show(getContentPane(), "explanationFrame");
 			}
 		});
 
@@ -388,6 +396,27 @@ public class MainFrame extends JFrame {
 						explanationFrame.repaint();
 					}
 					pageIdentifier.setText(currentExpage + "/" + fileIO.getExplanation().getTotalProgress());
+				} else if (selectedChapter.equals(classObject)) {
+					if (currentExpage > 1) {
+						currentExpage--;
+						imgName = "ExplanationSource\\ClassObject\\cla" + currentExpage + ".png";
+						explanationFrame.repaint();
+					}
+					pageIdentifier.setText(currentExpage + "/" + classObject.getExplanation().getTotalProgress());
+				} else if (selectedChapter.equals(polymorphism)) {
+					if (currentExpage > 1) {
+						currentExpage--;
+						imgName = "ExplanationSource\\Polymorphism\\io" + currentExpage + ".png";
+						explanationFrame.repaint();
+					}
+					pageIdentifier.setText(currentExpage + "/" + polymorphism.getExplanation().getTotalProgress());
+				} else if (selectedChapter.equals(inheritance)) {
+					if (currentExpage > 1) {
+						currentExpage--;
+						imgName = "ExplanationSource\\Inheritance\\io" + currentExpage + ".png";
+						explanationFrame.repaint();
+					}
+					pageIdentifier.setText(currentExpage + "/" + inheritance.getExplanation().getTotalProgress());
 				}
 
 			}
@@ -420,7 +449,32 @@ public class MainFrame extends JFrame {
 						explanationFrame.repaint();
 					}
 					pageIdentifier.setText(currentExpage + "/20");
+				} else if (selectedChapter.equals(classObject)) {
+					if (currentExpage < 22) {
+						currentExpage++;
+						lastpage = currentExpage;
+						imgName = "ExplanationSource\\ClassObject\\cla" + currentExpage + ".png";
+						explanationFrame.repaint();
+					}
+					pageIdentifier.setText(currentExpage + "/22");
+				} else if (selectedChapter.equals(polymorphism)) {
+					if (currentExpage < 16) {
+						currentExpage++;
+						lastpage = currentExpage;
+						imgName = "ExplanationSource\\Polymorphism\\pol" + currentExpage + ".png";
+						explanationFrame.repaint();
+					}
+					pageIdentifier.setText(currentExpage + "/16");
+				} else if (selectedChapter.equals(inheritance)) {
+					if (currentExpage < 30) {
+						currentExpage++;
+						lastpage = currentExpage;
+						imgName = "ExplanationSource\\Inheritance\\inh" + currentExpage + ".png";
+						explanationFrame.repaint();
+					}
+					pageIdentifier.setText(currentExpage + "/30");
 				}
+				
 
 			}
 		});
