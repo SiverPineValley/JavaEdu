@@ -23,12 +23,12 @@ public class User implements Serializable {
 	}
 	public User(){}
 
-	public double[] getQuizPoint() {
-		return quizPoint;
+	public double getQuizPoint(int index) {
+		return quizPoint[index];
 	}
 
-	public void setQuizPoint(double[] quizPoint) {
-		this.quizPoint = quizPoint;
+	public void setQuizPoint(double quizPoint, int index) {
+		this.quizPoint[index] = quizPoint;
 	}
 
 	public String getId() {

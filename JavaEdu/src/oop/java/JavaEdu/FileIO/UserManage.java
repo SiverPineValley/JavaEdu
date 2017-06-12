@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import oop.java.JavaEdu.Chapter;
 import oop.java.JavaEdu.User;
 
 public class UserManage {
@@ -80,7 +81,29 @@ public class UserManage {
 
 	}
 	
-	
-	
+	public static User EditUser( User user, int chapternum, double quizPoint ) {
+		ArrayList<User> userList;
+		int index;
+		try {
+			userList = UserfromFile();
+			index = userList.indexOf(user);
+			userList.get(index).setQuizPoint(quizPoint, chapternum);
+			
+			FileOutputStream fo = new FileOutputStream("User.dat");
+			ObjectOutputStream oo = new ObjectOutputStream(fo);
+			oo.writeObject(userList);
+			
+			
+		}catch(NullPointerException e) {
+			e.printStackTrace();
+			return user;
+		}catch (IOException e) {
+			e.printStackTrace();
+			return user;
+		}
+			return userList.get(index);
+		
+	}
+
 	
 }
