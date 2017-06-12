@@ -137,93 +137,132 @@ public class CodeExample extends JFrame {
 
 		JPanel inheritance = new JPanel();
 		contentPane.add(inheritance, "Inheritance");
-
-		JTextArea textArea2 = new JTextArea();
-		textArea2.setEditable(false);
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane_1.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		GroupLayout gl_inheritance = new GroupLayout(inheritance);
-		gl_inheritance.setHorizontalGroup(gl_inheritance.createParallelGroup(Alignment.TRAILING)
-				.addGap(0, 784, Short.MAX_VALUE).addGroup(Alignment.LEADING,
-						gl_inheritance.createSequentialGroup().addGap(328)
-								.addComponent(textArea2, GroupLayout.PREFERRED_SIZE, 426, GroupLayout.PREFERRED_SIZE)
-								.addContainerGap(30, Short.MAX_VALUE)));
-		gl_inheritance
-				.setVerticalGroup(gl_inheritance.createParallelGroup(Alignment.LEADING).addGap(0, 562, Short.MAX_VALUE)
-						.addGroup(gl_inheritance.createSequentialGroup().addGap(21)
-								.addComponent(textArea2, GroupLayout.PREFERRED_SIZE, 513, GroupLayout.PREFERRED_SIZE)
-								.addContainerGap(28, Short.MAX_VALUE)));
+		gl_inheritance.setHorizontalGroup(
+			gl_inheritance.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_inheritance.createSequentialGroup()
+					.addGap(259)
+					.addComponent(scrollPane_1, GroupLayout.PREFERRED_SIZE, 503, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
+		gl_inheritance.setVerticalGroup(
+			gl_inheritance.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_inheritance.createSequentialGroup()
+					.addGap(2)
+					.addComponent(scrollPane_1, GroupLayout.PREFERRED_SIZE, 508, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
+		
+				JTextArea textArea2 = new JTextArea();
+				scrollPane_1.setViewportView(textArea2);
+				textArea2.setEditable(false);
 		inheritance.setLayout(gl_inheritance);
 
-		JPanel polymorphism = new JPanel();
-		contentPane.add(polymorphism, "Polymorphism");
-
-		JTextArea textArea3 = new JTextArea();
-		textArea3.setEditable(false);
-		GroupLayout gl_polymorphism = new GroupLayout(polymorphism);
-		gl_polymorphism.setHorizontalGroup(gl_polymorphism.createParallelGroup(Alignment.TRAILING)
-				.addGap(0, 784, Short.MAX_VALUE).addGroup(Alignment.LEADING,
-						gl_polymorphism.createSequentialGroup().addGap(328)
-								.addComponent(textArea3, GroupLayout.PREFERRED_SIZE, 426, GroupLayout.PREFERRED_SIZE)
-								.addContainerGap(30, Short.MAX_VALUE)));
-		gl_polymorphism
-				.setVerticalGroup(gl_polymorphism.createParallelGroup(Alignment.LEADING).addGap(0, 562, Short.MAX_VALUE)
-						.addGroup(gl_polymorphism.createSequentialGroup().addGap(21)
-								.addComponent(textArea3, GroupLayout.PREFERRED_SIZE, 513, GroupLayout.PREFERRED_SIZE)
-								.addContainerGap(28, Short.MAX_VALUE)));
-		polymorphism.setLayout(gl_polymorphism);
-
-		JPanel abstractInterface = new JPanel();
-		contentPane.add(abstractInterface, "Abstraction Class and Interfaces");
-
-		JTextArea textArea4 = new JTextArea();
-		textArea4.setEditable(false);
-		GroupLayout gl_abstractInterface = new GroupLayout(abstractInterface);
-		gl_abstractInterface.setHorizontalGroup(gl_abstractInterface.createParallelGroup(Alignment.TRAILING)
-				.addGap(0, 784, Short.MAX_VALUE).addGroup(Alignment.LEADING,
-						gl_abstractInterface.createSequentialGroup().addGap(328)
-								.addComponent(textArea4, GroupLayout.PREFERRED_SIZE, 426, GroupLayout.PREFERRED_SIZE)
-								.addContainerGap(30, Short.MAX_VALUE)));
-		gl_abstractInterface.setVerticalGroup(
-				gl_abstractInterface.createParallelGroup(Alignment.LEADING).addGap(0, 562, Short.MAX_VALUE)
-						.addGroup(gl_abstractInterface.createSequentialGroup().addGap(21)
-								.addComponent(textArea4, GroupLayout.PREFERRED_SIZE, 513, GroupLayout.PREFERRED_SIZE)
-								.addContainerGap(28, Short.MAX_VALUE)));
-		abstractInterface.setLayout(gl_abstractInterface);
-
-		JPanel gui = new JPanel();
-		contentPane.add(gui, "GUI");
-
-		JTextArea textArea5 = new JTextArea();
-		textArea5.setEditable(false);
-		GroupLayout gl_gui = new GroupLayout(gui);
-		gl_gui.setHorizontalGroup(gl_gui.createParallelGroup(Alignment.TRAILING).addGap(0, 784, Short.MAX_VALUE)
-				.addGroup(Alignment.LEADING,
-						gl_gui.createSequentialGroup().addGap(328)
-								.addComponent(textArea5, GroupLayout.PREFERRED_SIZE, 426, GroupLayout.PREFERRED_SIZE)
-								.addContainerGap(30, Short.MAX_VALUE)));
-		gl_gui.setVerticalGroup(gl_gui.createParallelGroup(Alignment.LEADING).addGap(0, 562, Short.MAX_VALUE)
-				.addGroup(gl_gui.createSequentialGroup().addGap(21)
-						.addComponent(textArea5, GroupLayout.PREFERRED_SIZE, 513, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(28, Short.MAX_VALUE)));
-		gui.setLayout(gl_gui);
-
-		JPanel fileIO = new JPanel();
-		contentPane.add(fileIO, "FileIO");
-
-		JTextArea textArea6 = new JTextArea();
-		textArea6.setEditable(false);
-		GroupLayout gl_fileIO = new GroupLayout(fileIO);
-		gl_fileIO.setHorizontalGroup(gl_fileIO.createParallelGroup(Alignment.TRAILING).addGap(0, 784, Short.MAX_VALUE)
-				.addGroup(Alignment.LEADING,
-						gl_fileIO.createSequentialGroup().addGap(328)
-								.addComponent(textArea6, GroupLayout.PREFERRED_SIZE, 426, GroupLayout.PREFERRED_SIZE)
-								.addContainerGap(30, Short.MAX_VALUE)));
-		gl_fileIO.setVerticalGroup(gl_fileIO.createParallelGroup(Alignment.LEADING).addGap(0, 562, Short.MAX_VALUE)
-				.addGroup(gl_fileIO.createSequentialGroup().addGap(21)
-						.addComponent(textArea6, GroupLayout.PREFERRED_SIZE, 513, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(28, Short.MAX_VALUE)));
-		fileIO.setLayout(gl_fileIO);
-
 		cardLayoutSet.show(contentPane, chapterInfo);
+		
+		JPanel polymorphism = new JPanel();
+		contentPane.add(polymorphism, "name_22238474070244");
+		
+		JScrollPane scrollPane_2 = new JScrollPane();
+		scrollPane_2.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane_2.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		GroupLayout gl_polymorphism = new GroupLayout(polymorphism);
+		gl_polymorphism.setHorizontalGroup(
+			gl_polymorphism.createParallelGroup(Alignment.LEADING)
+				.addGap(0, 764, Short.MAX_VALUE)
+				.addGroup(gl_polymorphism.createSequentialGroup()
+					.addGap(259)
+					.addComponent(scrollPane_2, GroupLayout.PREFERRED_SIZE, 503, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
+		gl_polymorphism.setVerticalGroup(
+			gl_polymorphism.createParallelGroup(Alignment.LEADING)
+				.addGap(0, 512, Short.MAX_VALUE)
+				.addGroup(gl_polymorphism.createSequentialGroup()
+					.addGap(2)
+					.addComponent(scrollPane_2, GroupLayout.PREFERRED_SIZE, 508, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
+		polymorphism.setLayout(gl_polymorphism);
+		
+		JPanel abstractInterface = new JPanel();
+		contentPane.add(abstractInterface, "name_22258263479275");
+		
+		JScrollPane scrollPane_3 = new JScrollPane();
+		scrollPane_3.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane_3.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		GroupLayout gl_abstractInterface = new GroupLayout(abstractInterface);
+		gl_abstractInterface.setHorizontalGroup(
+			gl_abstractInterface.createParallelGroup(Alignment.LEADING)
+				.addGap(0, 764, Short.MAX_VALUE)
+				.addGroup(gl_abstractInterface.createSequentialGroup()
+					.addGap(259)
+					.addComponent(scrollPane_3, GroupLayout.PREFERRED_SIZE, 503, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
+		gl_abstractInterface.setVerticalGroup(
+			gl_abstractInterface.createParallelGroup(Alignment.LEADING)
+				.addGap(0, 512, Short.MAX_VALUE)
+				.addGroup(gl_abstractInterface.createSequentialGroup()
+					.addGap(2)
+					.addComponent(scrollPane_3, GroupLayout.PREFERRED_SIZE, 508, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
+		abstractInterface.setLayout(gl_abstractInterface);
+		
+		JPanel gui = new JPanel();
+		contentPane.add(gui, "name_22288440150068");
+		
+		JScrollPane scrollPane_4 = new JScrollPane();
+		scrollPane_4.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane_4.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		GroupLayout gl_gui = new GroupLayout(gui);
+		gl_gui.setHorizontalGroup(
+			gl_gui.createParallelGroup(Alignment.LEADING)
+				.addGap(0, 764, Short.MAX_VALUE)
+				.addGroup(gl_gui.createSequentialGroup()
+					.addGap(259)
+					.addComponent(scrollPane_4, GroupLayout.PREFERRED_SIZE, 503, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
+		gl_gui.setVerticalGroup(
+			gl_gui.createParallelGroup(Alignment.LEADING)
+				.addGap(0, 512, Short.MAX_VALUE)
+				.addGroup(gl_gui.createSequentialGroup()
+					.addGap(2)
+					.addComponent(scrollPane_4, GroupLayout.PREFERRED_SIZE, 508, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
+		gui.setLayout(gl_gui);
+		
+		JPanel fileIO = new JPanel();
+		contentPane.add(fileIO, "name_22290023429786");
+		
+		JScrollPane scrollPane_5 = new JScrollPane();
+		scrollPane_5.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane_5.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		GroupLayout gl_fileIO = new GroupLayout(fileIO);
+		gl_fileIO.setHorizontalGroup(
+			gl_fileIO.createParallelGroup(Alignment.LEADING)
+				.addGap(0, 764, Short.MAX_VALUE)
+				.addGroup(gl_fileIO.createSequentialGroup()
+					.addGap(259)
+					.addComponent(scrollPane_5, GroupLayout.PREFERRED_SIZE, 503, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
+		gl_fileIO.setVerticalGroup(
+			gl_fileIO.createParallelGroup(Alignment.LEADING)
+				.addGap(0, 512, Short.MAX_VALUE)
+				.addGroup(gl_fileIO.createSequentialGroup()
+					.addGap(2)
+					.addComponent(scrollPane_5, GroupLayout.PREFERRED_SIZE, 508, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
+		fileIO.setLayout(gl_fileIO);
 
 	}
 }
