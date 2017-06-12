@@ -1,0 +1,68 @@
+
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class GradeAssigner {
+
+	/** Main method */
+	public static void main(String[] args) {
+		// Create a Scanner
+		Scanner input = new Scanner(System.in);
+		
+		ArrayList<Integer> scores = new ArrayList<Integer>(); // Array scores
+		int best = 0; // The best score
+		char grade; // The grade
+		int tmp;
+		
+		// Read scores and find the best score
+		while(true) {
+			System.out.print("Please enter a score (negative number to exit): ");
+			 tmp = input.nextInt();
+			 
+			 // quit
+			 if(tmp < 0) break;			
+			
+			 // actually we are inserting a primitive type int as Integer object. 
+			 // Java is smart enough to create an Integer object
+			 // from an int.
+			 scores.add(tmp);			 
+			 
+			 // possibly record the best score
+			 if (tmp > best)
+				best = tmp;
+		}
+
+		// Declare and initialize output string builder.
+		// When we need to concatenate many strings together, 
+		// it is more efficient to use the StringBuilder object. Why is that?
+		StringBuilder sb = new StringBuilder();
+		
+		// Assign and display grades. 
+		int studentId = 1;
+		while(!scores.isEmpty()) {
+			
+			int score = scores.remove(0); // first score on the list
+			
+			if (score >= best - 10)
+				grade = 'A';
+			else if (score >= best - 20)
+				grade = 'B';
+			else if (score >= best - 30)
+				grade = 'C';
+			else if (score >= best - 40)
+				grade = 'D';
+			else
+				grade = 'F';
+
+			sb.append("Student " + studentId); 
+			sb.append(" score is " + score);
+			sb.append(" and grade is " + grade);
+			sb.append("\n");
+			studentId++;			
+		}
+
+		// Display the result
+		System.out.println(sb.toString());
+	}
+
+}

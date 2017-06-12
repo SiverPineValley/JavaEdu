@@ -1,0 +1,46 @@
+public class Dog {
+    String name;
+    
+    public void bark() {
+        System.out.println(name + " says Ruff!");
+    }
+    
+    public void eat() { 
+        System.out.println(name + " eats a bone");
+    }
+    
+    public void chaseCat() { 
+        System.out.println(name + " chases neighbor's cat");
+    }
+	
+    public static void main(String[] args) {
+        Dog dog1 = new Dog();
+        dog1.bark();
+        
+        if(dog1.name != null)
+            dog1.name.charAt(0);
+        else 
+            dog1.name = "unknown";
+        
+        dog1.name = "Bart";
+        
+        Dog[] myDogs = new Dog[3];
+        myDogs[0] = new Dog();
+        myDogs[1] = new Dog();
+        myDogs[2] = dog1;
+        
+        Dog tmpDog = myDogs[0];
+        
+        tmpDog.name = "Fred";
+        myDogs[1].name = "Marge";
+        
+        System.out.print("name of the dog at index 2 is ");
+        System.out.println(myDogs[2].name);
+        
+        int x = 0;
+        while (x < myDogs.length) {
+            myDogs[x].bark();
+            x = x+1;
+        }
+    }
+}

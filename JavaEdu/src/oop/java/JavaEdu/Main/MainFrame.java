@@ -214,6 +214,7 @@ public class MainFrame extends JFrame {
 		btnExplanation.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cardLayoutSet.show(getContentPane(), "explanationFrame");
+				new CodeExample(selectedChapter.getChapterInfo()).setVisible(true);;
 				if (selectedChapter.equals(abstractInterface)) {
 					imgName = "ExplanationSource\\AbstractClassandInterfaces\\ab1.png";
 					pageIdentifier.setText("1/" + abstractInterface.getExplanation().getTotalProgress());

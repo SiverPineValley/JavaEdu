@@ -1,0 +1,132 @@
+//Bicycle.java
+public class Bicycle {
+	
+	private int speed = 0;	
+	private boolean foldable = false;
+	private boolean folded = false;
+	private String brand = null;
+	private String nickname = null;
+	private String material = null;
+	private double wheelSize = 0.0;
+	private double weight = 0.0;
+	private int wheelCount = 2;
+	private boolean operational = true;
+	
+
+
+	public Bicycle(boolean foldable,String brand,
+			String material, double wheelSize, double weight,
+			int wheelCount) {
+		super();		
+		this.foldable = foldable;
+		this.brand = brand;
+		this.material = material;
+		this.wheelSize = wheelSize;
+		this.weight = weight;
+		this.wheelCount = wheelCount;
+		
+	}
+
+	public void printDescription() {
+		System.out.println("\nBike details: ");
+		System.out.println("\tBrand: "+brand);
+		System.out.println("\tNickname: "+nickname);
+		System.out.println("\tSpeed: "+speed);
+		System.out.println("\tFoldable: "+foldable);
+		System.out.println("\tFolded: "+folded);
+		System.out.println("\tMateriall: "+material);
+		System.out.println("\tWheel size: "+wheelSize);
+		System.out.println("\tWeight: "+weight);
+		System.out.println("\tWheel count:"+wheelCount);
+		System.out.println("\tOperational:"+operational);
+	}
+
+	public void applyBrake(int decrement) {	
+		speed -= decrement;
+		if(speed < 0) speed = 0;
+		System.out.println("Speed decreased to:"+speed);
+	}
+
+	public void speedUp(int increment) {
+		speed += increment;
+		System.out.println("Speed increased to:"+speed);
+		
+		if(speed > 100) {
+			System.out.println("Accident!");
+			speed = 0;
+			operational = false;
+		}
+	}
+	
+	public int getSpeed() {
+		return speed;
+	}
+
+	public boolean isFolded() {
+		return folded;
+	}
+
+	public void setFolded(boolean folded) {
+		if(foldable)
+			this.folded = folded;
+		else
+			System.out.println("Cannot (un)fold a bike that is not foldable!");
+	}
+
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
+	public String getMaterial() {
+		return material;
+	}
+
+	public void setMaterial(String material) {
+		this.material = material;
+	}
+
+	public double getWheelSize() {
+		return wheelSize;
+	}
+
+	public void setWheelSize(double wheelSize) {
+		this.wheelSize = wheelSize;
+	}
+
+	public double getWeight() {
+		return weight;
+	}
+
+	public void setWeight(double weight) {
+		this.weight = weight;
+	}
+
+	public int getWheelCount() {
+		return wheelCount;
+	}
+
+	public void setWheelCount(int wheelCount) {
+		this.wheelCount = wheelCount;
+	}
+
+	public boolean isFoldable() {
+		return foldable;
+	}
+
+	public String getBrand() {
+		return brand;
+	}
+
+	public boolean isOperational() {
+		return operational;
+	}
+
+	public void setOperational(boolean operational) {
+		this.operational = operational;
+	}
+	
+}
