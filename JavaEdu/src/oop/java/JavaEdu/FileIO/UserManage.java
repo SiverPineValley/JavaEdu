@@ -71,7 +71,7 @@ public class UserManage {
 				}
 			}
 			os.close();
-			return new User();
+			return null;
 		} catch (Exception e) {
 
 		}

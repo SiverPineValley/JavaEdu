@@ -205,7 +205,7 @@ public class MainFrame extends JFrame {
 		JButton btnExplanation = new JButton("Explanation");
 		btnExplanation.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				cardLayoutSet.show(getContentPane(), "explanationFrame");
 				if (selectedChapter.equals(abstractInterface)) {
 					imgName = "ExplanationSource\\AbstractClassandInterfaces\\ab1.png";
 					pageIdentifier.setText("1/" + abstractInterface.getExplanation().getTotalProgress());
@@ -258,10 +258,10 @@ public class MainFrame extends JFrame {
 		JButton signIn = new JButton("Sign in");
 		signIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				try {
 				String id = idText.getText();
 				String pass = passwordText.getText();
-
+				
 				int t = 0;
 				if (id.length() == 9) {
 					for (t = 0; t < 9; t++) {
@@ -306,7 +306,11 @@ public class MainFrame extends JFrame {
 					}
 
 				}
-
+			}
+			catch(NullPointerException ex) {
+				JOptionPane.showMessageDialog(null, "Id cannot find. Please Sign up!!!", "Fail",
+						JOptionPane.INFORMATION_MESSAGE);
+			}
 			}
 		});
 
