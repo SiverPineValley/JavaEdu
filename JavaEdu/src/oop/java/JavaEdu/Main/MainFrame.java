@@ -75,6 +75,7 @@ public class MainFrame extends JFrame {
 		/*
 		 * This part is set the total page of each explanation
 		 */
+		this.setResizable(false);
 		classObject.setExplanation(new Explanation());
 		inheritance.setExplanation(new Explanation());
 		polymorphism.setExplanation(new Explanation());

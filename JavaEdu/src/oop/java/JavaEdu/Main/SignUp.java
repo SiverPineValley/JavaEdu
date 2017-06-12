@@ -28,6 +28,7 @@ public class SignUp extends JFrame {
 	private JTextField passwordField;
 
 	public SignUp() {
+		this.setResizable(false);
 		setTitle("Sign up");
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
