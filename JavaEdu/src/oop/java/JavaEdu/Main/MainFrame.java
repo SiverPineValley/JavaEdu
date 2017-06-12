@@ -75,9 +75,16 @@ public class MainFrame extends JFrame {
 		/*
 		 * This part is set the total page of each explanation
 		 */
+		classObject.setExplanation(new Explanation());
+		inheritance.setExplanation(new Explanation());
+		polymorphism.setExplanation(new Explanation());
 		abstractInterface.setExplanation(new Explanation());
 		gui.setExplanation(new Explanation());
 		fileIO.setExplanation(new Explanation());
+		
+		classObject.getExplanation().setTotalProgress(22);
+		inheritance.getExplanation().setTotalProgress(30);
+		polymorphism.getExplanation().setTotalProgress(16);
 		abstractInterface.getExplanation().setTotalProgress(20);
 		gui.getExplanation().setTotalProgress(55);
 		fileIO.getExplanation().setTotalProgress(20);
@@ -410,14 +417,14 @@ public class MainFrame extends JFrame {
 				} else if (selectedChapter.equals(polymorphism)) {
 					if (currentExpage > 1) {
 						currentExpage--;
-						imgName = "ExplanationSource\\Polymorphism\\io" + currentExpage + ".png";
+						imgName = "ExplanationSource\\Polymorphism\\pol" + currentExpage + ".png";
 						explanationFrame.repaint();
 					}
 					pageIdentifier.setText(currentExpage + "/" + polymorphism.getExplanation().getTotalProgress());
 				} else if (selectedChapter.equals(inheritance)) {
 					if (currentExpage > 1) {
 						currentExpage--;
-						imgName = "ExplanationSource\\Inheritance\\io" + currentExpage + ".png";
+						imgName = "ExplanationSource\\Inheritance\\inh" + currentExpage + ".png";
 						explanationFrame.repaint();
 					}
 					pageIdentifier.setText(currentExpage + "/" + inheritance.getExplanation().getTotalProgress());
