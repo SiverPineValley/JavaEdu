@@ -1,0 +1,13 @@
+public class AnimalTestDrive {
+	public static void main (String[] args) {
+		MyAnimalList list = new MyAnimalList();
+		Dog d = new Dog();
+		Dog d2 = new Dog();
+		Cat c = new Cat();
+		Cat c2 = new Cat();
+		list.add(d);
+		list.add(d2);
+		list.add(c);
+		list.add(c2);		
+	}
+}

@@ -1,0 +1,40 @@
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+public class InnerAdapter extends JFrame {
+
+	public void go() {
+		this.setTitle("Inner adapter demo");
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		JLabel lbl = new JLabel("Hello world!");
+		// add mouse listener to label using the inner MyAdapter class
+		lbl.addMouseListener(new MyAdapter());
+
+		this.add(lbl);
+
+		this.setSize(300, 200);
+		this.setVisible(true);
+	}
+
+	class MyAdapter extends MouseAdapter {
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			JOptionPane.showMessageDialog(null, "Label was clicked");
+		}
+
+	}
+
+	public static void main(String[] args) {
+
+		InnerAdapter ia = new InnerAdapter();
+		ia.go();
+
+	}
+
+}

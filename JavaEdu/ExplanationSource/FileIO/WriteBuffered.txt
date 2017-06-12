@@ -1,0 +1,41 @@
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class WriteBuffered {
+	
+	public static void main(String [] args) {
+	
+	   try {
+		   // set up buffered writer
+           File myFile = new File("MyFile.txt");
+           FileWriter writer = new FileWriter("MyFile.txt");
+           BufferedWriter br = new BufferedWriter(writer);
+           
+           String line; 
+          
+           System.out.println("Writing to MyFile.txt");
+          
+           Scanner scan = new Scanner(System.in);
+           
+           System.out.println("Write lines to file until an empty line");
+                    
+           
+          // read lines from the user and write them to buffered stream
+           while((line = scan.nextLine()).length() != 0) {
+        	   // we need to add a newline because 
+        	   // scanner's nextLine() doesn't include it. 
+        	   br.write(line+"\n");         	   
+           }          
+           br.close();
+           System.out.println("bye bye!");
+           	
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+	}
+}

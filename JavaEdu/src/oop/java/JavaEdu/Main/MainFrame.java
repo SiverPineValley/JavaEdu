@@ -216,22 +216,22 @@ public class MainFrame extends JFrame {
 				cardLayoutSet.show(getContentPane(), "explanationFrame");
 				new CodeExample(selectedChapter.getChapterInfo()).setVisible(true);;
 				if (selectedChapter.equals(abstractInterface)) {
-					imgName = "ExplanationSource\\AbstractClassandInterfaces\\ab1.png";
+					imgName = "JavaEdu//ExplanationSource\\AbstractClassandInterfaces\\ab1.png";
 					pageIdentifier.setText("1/" + abstractInterface.getExplanation().getTotalProgress());
 				} else if (selectedChapter.equals(gui)) {
-					imgName = "ExplanationSource\\Gui\\gui1.png";
+					imgName = "JavaEdu//ExplanationSource\\Gui\\gui1.png";
 					pageIdentifier.setText("1/" + gui.getExplanation().getTotalProgress());
 				} else if (selectedChapter.equals(fileIO)) {
-					imgName = "ExplanationSource\\FileIO\\io1.png";
+					imgName = "JavaEdu//ExplanationSource\\FileIO\\io1.png";
 					pageIdentifier.setText("1/" + fileIO.getExplanation().getTotalProgress());
 				} else if (selectedChapter.equals(classObject)) {
-					imgName = "ExplanationSource\\ClassObject\\cla1.png";
+					imgName = "JavaEdu//ExplanationSource\\ClassObject\\cla1.png";
 					pageIdentifier.setText("1/" + classObject.getExplanation().getTotalProgress());
 				} else if (selectedChapter.equals(inheritance)) {
-					imgName = "ExplanationSource\\Inheritance\\inh1.png";
+					imgName = "JavaEdu//ExplanationSource\\Inheritance\\inh1.png";
 					pageIdentifier.setText("1/" + inheritance.getExplanation().getTotalProgress());
 				} else if (selectedChapter.equals(polymorphism)) {
-					imgName = "ExplanationSource\\Polymorphism\\pol1.png";
+					imgName = "JavaEdu//ExplanationSource\\Polymorphism\\pol1.png";
 					pageIdentifier.setText("1/" + polymorphism.getExplanation().getTotalProgress());
 				}
 			}
@@ -391,42 +391,42 @@ public class MainFrame extends JFrame {
 				if (selectedChapter.equals(abstractInterface)) {
 					if (currentExpage > 1) {
 						currentExpage--;
-						imgName = "ExplanationSource\\AbstractClassandInterfaces\\ab" + currentExpage + ".png";
+						imgName = "JavaEdu//ExplanationSource\\AbstractClassandInterfaces\\ab" + currentExpage + ".png";
 						explanationFrame.repaint();
 					}
 					pageIdentifier.setText(currentExpage + "/" + abstractInterface.getExplanation().getTotalProgress());
 				} else if (selectedChapter.equals(gui)) {
 					if (currentExpage > 1) {
 						currentExpage--;
-						imgName = "ExplanationSource\\Gui\\gui" + currentExpage + ".png";
+						imgName = "JavaEdu//ExplanationSource\\Gui\\gui" + currentExpage + ".png";
 						explanationFrame.repaint();
 					}
 					pageIdentifier.setText(currentExpage + "/" + gui.getExplanation().getTotalProgress());
 				} else if (selectedChapter.equals(fileIO)) {
 					if (currentExpage > 1) {
 						currentExpage--;
-						imgName = "ExplanationSource\\FileIO\\io" + currentExpage + ".png";
+						imgName = "JavaEdu//ExplanationSource\\FileIO\\io" + currentExpage + ".png";
 						explanationFrame.repaint();
 					}
 					pageIdentifier.setText(currentExpage + "/" + fileIO.getExplanation().getTotalProgress());
 				} else if (selectedChapter.equals(classObject)) {
 					if (currentExpage > 1) {
 						currentExpage--;
-						imgName = "ExplanationSource\\ClassObject\\cla" + currentExpage + ".png";
+						imgName = "JavaEdu//ExplanationSource\\ClassObject\\cla" + currentExpage + ".png";
 						explanationFrame.repaint();
 					}
 					pageIdentifier.setText(currentExpage + "/" + classObject.getExplanation().getTotalProgress());
 				} else if (selectedChapter.equals(polymorphism)) {
 					if (currentExpage > 1) {
 						currentExpage--;
-						imgName = "ExplanationSource\\Polymorphism\\pol" + currentExpage + ".png";
+						imgName = "JavaEdu//ExplanationSource\\Polymorphism\\pol" + currentExpage + ".png";
 						explanationFrame.repaint();
 					}
 					pageIdentifier.setText(currentExpage + "/" + polymorphism.getExplanation().getTotalProgress());
 				} else if (selectedChapter.equals(inheritance)) {
 					if (currentExpage > 1) {
 						currentExpage--;
-						imgName = "ExplanationSource\\Inheritance\\inh" + currentExpage + ".png";
+						imgName = "JavaEdu//ExplanationSource\\Inheritance\\inh" + currentExpage + ".png";
 						explanationFrame.repaint();
 					}
 					pageIdentifier.setText(currentExpage + "/" + inheritance.getExplanation().getTotalProgress());
@@ -442,7 +442,7 @@ public class MainFrame extends JFrame {
 					if (currentExpage < 20) {
 						currentExpage++;
 						lastpage = currentExpage;
-						imgName = "ExplanationSource\\AbstractClassandInterfaces\\ab" + currentExpage + ".png";
+						imgName = "JavaEdu//ExplanationSource\\AbstractClassandInterfaces\\ab" + currentExpage + ".png";
 						explanationFrame.repaint();
 					}
 					pageIdentifier.setText(currentExpage + "/20");
@@ -450,7 +450,7 @@ public class MainFrame extends JFrame {
 					if (currentExpage < 55) {
 						currentExpage++;
 						lastpage = currentExpage;
-						imgName = "ExplanationSource\\Gui\\gui" + currentExpage + ".png";
+						imgName = "JavaEdu//ExplanationSource\\Gui\\gui" + currentExpage + ".png";
 						explanationFrame.repaint();
 					}
 					pageIdentifier.setText(currentExpage + "/55");
@@ -458,7 +458,7 @@ public class MainFrame extends JFrame {
 					if (currentExpage < 20) {
 						currentExpage++;
 						lastpage = currentExpage;
-						imgName = "ExplanationSource\\FileIO\\io" + currentExpage + ".png";
+						imgName = "JavaEdu//ExplanationSource\\FileIO\\io" + currentExpage + ".png";
 						explanationFrame.repaint();
 					}
 					pageIdentifier.setText(currentExpage + "/20");
@@ -466,7 +466,7 @@ public class MainFrame extends JFrame {
 					if (currentExpage < 22) {
 						currentExpage++;
 						lastpage = currentExpage;
-						imgName = "ExplanationSource\\ClassObject\\cla" + currentExpage + ".png";
+						imgName = "JavaEdu//ExplanationSource\\ClassObject\\cla" + currentExpage + ".png";
 						explanationFrame.repaint();
 					}
 					pageIdentifier.setText(currentExpage + "/22");
@@ -474,7 +474,7 @@ public class MainFrame extends JFrame {
 					if (currentExpage < 16) {
 						currentExpage++;
 						lastpage = currentExpage;
-						imgName = "ExplanationSource\\Polymorphism\\pol" + currentExpage + ".png";
+						imgName = "JavaEdu//ExplanationSource\\Polymorphism\\pol" + currentExpage + ".png";
 						explanationFrame.repaint();
 					}
 					pageIdentifier.setText(currentExpage + "/16");
@@ -482,7 +482,7 @@ public class MainFrame extends JFrame {
 					if (currentExpage < 30) {
 						currentExpage++;
 						lastpage = currentExpage;
-						imgName = "ExplanationSource\\Inheritance\\inh" + currentExpage + ".png";
+						imgName = "JavaEdu//ExplanationSource\\Inheritance\\inh" + currentExpage + ".png";
 						explanationFrame.repaint();
 					}
 					pageIdentifier.setText(currentExpage + "/30");

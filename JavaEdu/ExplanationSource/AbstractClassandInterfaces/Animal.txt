@@ -1,0 +1,41 @@
+
+abstract public class Animal {
+	private String picture; 
+	private String food;
+	private int hunger;
+	// other instance variables...
+	
+	// abstract methods
+	public abstract void makeNoise();
+	public abstract void eat();
+	public abstract void roam();
+	
+	public void sleep(int n) {
+		System.out.println("Animal sleeps for "+n+" minutes.");
+	}
+		
+	
+	// getters and setters
+	public String getPicture() {
+		return picture;
+	}
+	public void setPicture(String picture) {
+		this.picture = picture;
+	}
+	public String getFood() {
+		return food;
+	}
+	public void setFood(String food) {
+		this.food = food;
+	}
+	public int getHunger() {
+		return hunger;
+	}
+	public void setHunger(int hunger) {
+		this.hunger = hunger;
+	}
+	
+	
+	
+	
+}

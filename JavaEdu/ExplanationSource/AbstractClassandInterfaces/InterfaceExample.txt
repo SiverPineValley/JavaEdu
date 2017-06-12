@@ -1,0 +1,11 @@
+
+public class InterfaceExample implements InterfaceName { 
+	// Class that implements an interface MUST implement
+	// ALL methods of the interface.
+	public String someMethod1(int x, int y) { 
+		return "someMethod1";
+	}
+	public String someMethod2(int x, int y) {
+		return "someMethod2";
+	}	
+}

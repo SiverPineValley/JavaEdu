@@ -1,0 +1,19 @@
+import java.io.*;
+
+public class WriteAFile {
+    public static void main(String args[]){
+        try {
+        	System.out.println("Writing to MyFile.txt.");
+        	
+           FileWriter writer = new FileWriter("MyFile.txt");
+           writer.write("Hello\n");
+           writer.write("World!\n");
+           writer.write("How are\n");
+           writer.write("you today?\n");
+           writer.close();
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+}
