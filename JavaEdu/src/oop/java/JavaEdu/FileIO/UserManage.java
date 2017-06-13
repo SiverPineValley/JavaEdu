@@ -81,29 +81,45 @@ public class UserManage {
 
 	}
 	
-	public static User EditUser( User user, int chapternum, double quizPoint ) {
-		ArrayList<User> userList;
-		int index;
-		try {
-			userList = UserfromFile();
-			index = userList.indexOf(user);
-			userList.get(index).setQuizPoint(quizPoint, chapternum);
-			
-			FileOutputStream fo = new FileOutputStream("User.dat");
-			ObjectOutputStream oo = new ObjectOutputStream(fo);
-			oo.writeObject(userList);
-			
-			
-		}catch(NullPointerException e) {
-			e.printStackTrace();
-			return user;
-		}catch (IOException e) {
-			e.printStackTrace();
-			return user;
-		}
-			return userList.get(index);
-		
-	}
+	public static User EditUser( User user, int type, double quizPoint) {  
+	 	ArrayList<User> userList;  
+	 	int index=0; 
+	 	try {  
+	 		userList = UserfromFile();  
+//	 		index = userList.indexOf(user);  
+
+	 		int tempindex = 0;
+	 		
+	 		for(User temp : userList)
+	 		{
+	 			if(temp.getId().equals(user.getId()))
+	 			{
+	 				index = tempindex;
+	 			}
+	 			tempindex++;
+	 		}
+	 		
+	 		userList.get(index).setQuizPoint(quizPoint,type);
+	 		
+	 			  
+	 		FileOutputStream fo = new FileOutputStream("User.dat");  
+	 			ObjectOutputStream oo = new ObjectOutputStream(fo);  
+	 			oo.writeObject(userList);  
+	 			  
+	 		  
+	 		}catch(NullPointerException e) {  
+	 			e.printStackTrace();  
+	 			return user;  
+	 		}catch (IOException e) {  
+	 			e.printStackTrace();  
+	 			return user;  
+	 		}  
+	 			return userList.get(index);  
+	 		  
+	 	}  
+
+
+
 
 	
 }

@@ -205,7 +205,7 @@ public class MainFrame extends JFrame {
 		JButton btnQuiz = new JButton("Quiz");
 		btnQuiz.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new quizmenu(selectedChapter.getChapterInfo()).getFrame().setVisible(true);
+				new quizmenu(selectedChapter.getChapterInfo(),selectedUser).getFrame().setVisible(true);
 			}
 		});
 		JLabel pageIdentifier = new JLabel("page");

@@ -21,6 +21,7 @@ public class Progress extends JFrame {
 	 * Create the frame.
 	 */
 	public Progress(User usr, Chapter chpt, int lastpage) {
+	
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -32,11 +33,11 @@ public class Progress extends JFrame {
 		
 		JLabel lblSelectedChapter = new JLabel("Selected Chapter: "+chpt.getChapterInfo());
 		
-		JLabel lblOx = new JLabel("OX Choice Score: ");
+		JLabel lblOx = new JLabel("OX Choice Score: "+CoreData.progress_ovalue);
 		
-		JLabel lblMultiple = new JLabel("Multiple Choice Score: ");
-		
-		JLabel lblShortans = new JLabel("Short Answer Score: ");
+		JLabel lblMultiple = new JLabel("Multiple Choice Score: "+CoreData.progress_mvalue);
+		 
+		JLabel lblShortans = new JLabel("Short Answer Score: "+CoreData.progress_svalue);
 		
 		JLabel lblTotal = new JLabel("Total Score: ");
 		

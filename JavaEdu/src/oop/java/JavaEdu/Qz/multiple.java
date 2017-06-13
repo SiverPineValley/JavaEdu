@@ -1,6 +1,7 @@
 package oop.java.JavaEdu.Qz;
 
 import java.awt.BorderLayout;
+
 import java.awt.CardLayout;
 import java.awt.EventQueue;
 import java.awt.Graphics;
@@ -19,9 +20,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 
-import oop.java.JavaEdu.Chapter;
-import oop.java.JavaEdu.Quiz;
-
+import oop.java.JavaEdu.*;
 import javax.swing.JRadioButton;
 
 public class multiple extends Quiz {
@@ -31,6 +30,7 @@ public class multiple extends Quiz {
 	private String mimage;
 	private JFrame frame = new JFrame();
 	private Image img;
+	private User selectedUser;
 	
 	public JFrame getFrame() {
 		return frame;
@@ -41,7 +41,8 @@ public class multiple extends Quiz {
 		this.frame = frame;
 	}
 	
-	public multiple(String s) {
+	public multiple(String s, User selectedUser_input) {
+		this.selectedUser = selectedUser_input;
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setBounds(100, 100, 835, 533);
 		contentPane = new JPanel();
@@ -222,21 +223,77 @@ public class multiple extends Quiz {
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(s.equals("Class and Object")){
 				if(rdbtnA_1.isSelected()){
 					mscore++;
+					CoreData.progress_mvalue = mscore;
 				}
 				if(rdbtnA_2.isSelected()){
 					mscore++;
+					CoreData.progress_mvalue = mscore;
 				}
+				}
+				if(s.equals("Inheritance")){
+					if(rdbtnB_1.isSelected()){
+						mscore++;
+						CoreData.progress_mvalue = mscore;
+					}
+					if(rdbtnB_2.isSelected()){
+						mscore++;
+						CoreData.progress_mvalue = mscore;
+					}
+					}
+				if(s.equals("Polymorphism")){
+					if(rdbtnC_1.isSelected()){
+						mscore++;
+						CoreData.progress_mvalue = mscore;
+					}
+					if(rdbtnC_2.isSelected()){
+						mscore++;
+						CoreData.progress_mvalue = mscore;
+					}
+					}
+				if(s.equals("Abstraction Class and Interfaces")){
+					if(rdbtnD_1.isSelected()){
+						mscore++;
+						CoreData.progress_mvalue = mscore;
+					}
+					if(rdbtnD_2.isSelected()){
+						mscore++;
+						CoreData.progress_mvalue = mscore;
+					}
+					}
+				if(s.equals("GUI")){
+					if(rdbtnE_1.isSelected()){
+						mscore++;
+						CoreData.progress_mvalue = mscore;
+					}
+					if(rdbtnE_2.isSelected()){
+						mscore++;
+						CoreData.progress_mvalue = mscore;
+					}
+					}
+				if(s.equals("FileIO")){
+					if(rdbtnA_1.isSelected()){
+						mscore++;
+						CoreData.progress_mvalue = mscore;
+					}
+					if(rdbtnA_2.isSelected()){
+						mscore++;
+						CoreData.progress_mvalue = mscore;
+					}
+					}
+				
 				
 				JOptionPane.showMessageDialog(null, "You get " + mscore + " point.");
+				
 			}
 		});
 		
 		JButton btnBack = new JButton("Back");
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new quizmenu(s).getFrame().setVisible(true);
+				new quizmenu(s,selectedUser).getFrame().setVisible(true);
 				frame.dispose();
 			}
 		});

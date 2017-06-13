@@ -1,27 +1,33 @@
-package oop.java.JavaEdu.Qz;
-
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import oop.java.JavaEdu.Chapter;
-import oop.java.JavaEdu.Quiz;
-
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JLabel;
-import javax.swing.JTextPane;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JTextField;
-import javax.swing.JTabbedPane;
+package oop.java.JavaEdu.Qz; 
+ 
+ 
+import java.awt.BorderLayout; 
+import java.awt.EventQueue; 
+ 
+ 
+import javax.swing.JFrame; 
+import javax.swing.JPanel; 
+import javax.swing.border.EmptyBorder; 
+ 
+ 
+import oop.java.JavaEdu.Chapter; 
+import oop.java.JavaEdu.Quiz; 
+import oop.java.JavaEdu.*; 
+ 
+import javax.swing.GroupLayout; 
+import javax.swing.GroupLayout.Alignment; 
+import javax.swing.LayoutStyle.ComponentPlacement; 
+import javax.swing.JLabel; 
+import javax.swing.JTextPane; 
+import javax.swing.JButton; 
+import java.awt.event.ActionListener; 
+import java.awt.event.ActionEvent; 
+import javax.swing.JTextField; 
+import javax.swing.JTabbedPane; 
 import javax.swing.JLayeredPane;
-import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+
+import java.awt.CardLayout; 
 
 public class shortans extends Quiz {
 
@@ -29,7 +35,9 @@ public class shortans extends Quiz {
 	private JFrame sframe = new JFrame();
 	private JTextField textField;
 	private JTextField textField_1;
-	
+	private int sscore;
+	private User selectedUser;
+	private shortans shortans;
 	public JFrame getSframe() {
 		return sframe;
 	}
@@ -38,13 +46,15 @@ public class shortans extends Quiz {
 		this.sframe = sframe;
 	}
 
-	public shortans(String s) {
+	public shortans(String s, User selectedUser_input) {
+		this.selectedUser = selectedUser_input;
 		sframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		sframe.setBounds(100, 100, 835, 533);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		sframe.setContentPane(contentPane);
-	
+		
+				
 		JPanel panel = new JPanel();
 		
 		
@@ -151,11 +161,32 @@ public class shortans extends Quiz {
 		});
 		
 		JButton btnSubmit = new JButton("Submit");
+		btnSubmit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(textField.getText().equals("answer")){
+					sscore++;
+					CoreData.progress_svalue=sscore;
+				}
+				if(textField.getText().equals("answer")){
+					sscore++;
+					CoreData.progress_svalue=sscore;
+				}
+				
+			
+				/*if(shortans.isCorrect(textField.getText(), "answer")){
+					sscore++;
+				}
+				if(shortans.isCorrect(textField_1.getText(), "answer")){
+					sscore++;
+				}*/
+				JOptionPane.showMessageDialog(null, "You get " + sscore + " point.");
+			}
+		});
 		
 		JButton btnBack = new JButton("Back");
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new quizmenu(s).getFrame().setVisible(true);
+				new quizmenu(s,selectedUser).getFrame().setVisible(true);
 				sframe.dispose();
 			}
 		});
@@ -187,5 +218,16 @@ public class shortans extends Quiz {
 		number.setLayout(gl_number);
 		contentPane.setLayout(gl_contentPane);
 	}
-}
 
+	/*@Override
+	public boolean isCorrect(String ans, String ans2) {
+		// TODO Auto-generated method stub
+		if(ans.equals(ans2)){
+			return true;
+		}
+		return super.isCorrect(ans, ans2);
+	}
+*/
+	
+	
+}

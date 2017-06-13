@@ -9,13 +9,16 @@ import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 
 import oop.java.JavaEdu.Chapter;
+import oop.java.JavaEdu.CoreData;
 import oop.java.JavaEdu.Quiz;
+import oop.java.JavaEdu.User;
 
 import java.awt.CardLayout;
 import javax.swing.JRadioButton;
@@ -24,7 +27,8 @@ public class ox extends Quiz {
 
 	private JPanel contentPane;
 	private JFrame oframe = new JFrame();
-
+	private int oscore;
+	private User selectedUser;
 	public JFrame getOframe() {
 		return oframe;
 	}
@@ -33,7 +37,8 @@ public class ox extends Quiz {
 		this.oframe = oframe;
 	}
 
-	public ox(String s) {
+	public ox(String s,User selectedUser_input) {
+		this.selectedUser = selectedUser_input;
 		oframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		oframe.setBounds(100, 100, 835, 533);
 		contentPane = new JPanel();
@@ -156,11 +161,24 @@ public class ox extends Quiz {
 		});
 		
 		JButton btnSubmit = new JButton("Submit");
+		btnSubmit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(rdbtnX.isSelected()){
+					oscore++;
+					CoreData.progress_ovalue=oscore;
+				}
+				if(rdbtnO_1.isSelected()){
+					oscore++;
+					CoreData.progress_ovalue=oscore;
+				}
+				JOptionPane.showMessageDialog(null, "You get " + oscore + " point.");
+			}
+		});
 		
 		JButton btnBack = new JButton("Back");
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new quizmenu(s).getFrame().setVisible(true);
+				new quizmenu(s,selectedUser).getFrame().setVisible(true);
 				oframe.dispose();
 			}
 		});
