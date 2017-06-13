@@ -39,7 +39,7 @@ public class Progress extends JFrame {
 		 
 		JLabel lblShortans = new JLabel("Short Answer Score: "+CoreData.progress_svalue);
 		
-		JLabel lblTotal = new JLabel("Total Score: ");
+		JLabel lblTotal = new JLabel("Total Score: "+(CoreData.progress_ovalue+CoreData.progress_mvalue+CoreData.progress_svalue));
 		
 		JLabel lblPage = new JLabel("Last View Page: "+lastpage);
 		

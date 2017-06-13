@@ -33,6 +33,7 @@ public class multiple extends Quiz {
 	private JFrame frame = new JFrame();
 	private Image img;
 	private User selectedUser;
+	private int run;
 	
 	public JFrame getFrame() {
 		return frame;
@@ -46,6 +47,7 @@ public class multiple extends Quiz {
 	public multiple(String s, User selectedUser_input) 
 	{
 		this.mscore = CoreData.progress_mvalue;
+		this.run = CoreData.runvalue;
 		this.selectedUser = selectedUser_input;
 		frame.setBounds(100, 100, 835, 533);
 		contentPane = new JPanel();
@@ -77,9 +79,14 @@ public class multiple extends Quiz {
 	
 		JPanel mpanel_1 = new JPanel();
 
-		if (s.equals("Abstraction Class and Interfaces")) {
+		if (s.equals("Class and Object")) {
 			txtrWhichOneHolds.setText("Which one holds bits that represent a way of accessing an object stored in memory (heap)?\r\nA. Reference Variable\r\nB. Base type Variable\r\nC. Integer\r\nD. JVM\r\nE. Boolean");	
 			txtrWhichOneStores.setText("Which one stores a numbered list of variables (base types or references).\r\nA. Short\r\nB. Double\r\nC. Integer\r\nD. Array\r\nE. Boolean");
+		}
+		
+		if(s.equals("Inheritance")){
+			txtrWhichOneHolds.setText("Inheritance Question1?\r\nA. sample\r\nB. sample\r\nC. sample\r\nD. sample\r\nE. sample");	
+			txtrWhichOneStores.setText("Inheritance Question2?.\r\nA. sample\r\nB. sample\r\nC. sample\r\nD. sample\r\nE. sample");
 		}
 		
 		mpanel_1.setToolTipText("");
@@ -208,8 +215,8 @@ public class multiple extends Quiz {
 			gl_panel_3.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_3.createSequentialGroup()
 					.addGap(68)
-					.addComponent(txtrWhichOneStores, GroupLayout.PREFERRED_SIZE, 564, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(103, Short.MAX_VALUE))
+					.addComponent(txtrWhichOneStores, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(663, Short.MAX_VALUE))
 		);
 		gl_panel_3.setVerticalGroup(
 			gl_panel_3.createParallelGroup(Alignment.LEADING)
@@ -264,6 +271,8 @@ public class multiple extends Quiz {
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				if(CoreData.runvalue==0){
 				if(s.equals("Class and Object")){
 				if(rdbtnA_1.isSelected()){
 					mscore++;
@@ -273,6 +282,7 @@ public class multiple extends Quiz {
 					mscore++;
 					CoreData.progress_mvalue = mscore;
 				}
+				run++;
 				}
 				if(s.equals("Inheritance")){
 					if(rdbtnB_1.isSelected()){
@@ -324,9 +334,19 @@ public class multiple extends Quiz {
 						CoreData.progress_mvalue = mscore;
 					}
 					}
-				
-				
+				run++;
+				CoreData.runvalue=run;
 				JOptionPane.showMessageDialog(null, "You get " + mscore + " point.");
+				}
+				else{
+					JOptionPane.showMessageDialog(null, "You already test go back", "Fail",
+							JOptionPane.INFORMATION_MESSAGE);
+					CoreData.runvalue=0;
+				}
+				
+				
+				
+				
 				
 			}
 		});
