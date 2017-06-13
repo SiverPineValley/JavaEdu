@@ -72,13 +72,16 @@ public class multiple extends Quiz {
 		
 		JRadioButton rdbtnE_1 = new JRadioButton("E");
 		
-		JPanel mpanel_1 = new JPanel(){
-			public void paintComponent(Graphics g) {
-				if (s.equals("Abstraction Class and Interfaces")) {
-					img = new ImageIcon("QuizSource\\AbstractClassandInterfaces\\images.jpg").getImage();
-				} g.drawImage(img, 0, 0, null);
-			}
-		};
+		JTextArea txtrWhichOneHolds = new JTextArea();
+		JTextArea txtrWhichOneStores = new JTextArea();
+	
+		JPanel mpanel_1 = new JPanel();
+
+		if (s.equals("Abstraction Class and Interfaces")) {
+			txtrWhichOneHolds.setText("Which one holds bits that represent a way of accessing an object stored in memory (heap)?\r\nA. Reference Variable\r\nB. Base type Variable\r\nC. Integer\r\nD. JVM\r\nE. Boolean");	
+			txtrWhichOneStores.setText("Which one stores a numbered list of variables (base types or references).\r\nA. Short\r\nB. Double\r\nC. Integer\r\nD. Array\r\nE. Boolean");
+		}
+		
 		mpanel_1.setToolTipText("");
 		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
 		gl_panel_1.setHorizontalGroup(
@@ -129,8 +132,6 @@ public class multiple extends Quiz {
 					.addContainerGap())
 		);
 		
-		JTextArea txtrWhichOneHolds = new JTextArea();
-		txtrWhichOneHolds.setText("Which one holds bits that represent a way of accessing an object stored in memory (heap)?\r\nA. Reference Variable\r\nB. Base type Variable\r\nC. Integer\r\nD. JVM\r\nE. Boolean");
 		GroupLayout gl_mpanel_1 = new GroupLayout(mpanel_1);
 		gl_mpanel_1.setHorizontalGroup(
 			gl_mpanel_1.createParallelGroup(Alignment.LEADING)
@@ -202,8 +203,6 @@ public class multiple extends Quiz {
 					.addContainerGap())
 		);
 		
-		JTextArea txtrWhichOneStores = new JTextArea();
-		txtrWhichOneStores.setText("Which one stores a numbered list of variables (base types or references).\r\nA. Short\r\nB. Double\r\nC. Integer\r\nD. Array\r\nE. Boolean");
 		GroupLayout gl_panel_3 = new GroupLayout(panel_3);
 		gl_panel_3.setHorizontalGroup(
 			gl_panel_3.createParallelGroup(Alignment.LEADING)
