@@ -22,6 +22,8 @@ import javax.swing.border.EmptyBorder;
 
 import oop.java.JavaEdu.*;
 import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+import javax.swing.JTextArea;
 
 public class multiple extends Quiz {
 
@@ -41,9 +43,10 @@ public class multiple extends Quiz {
 		this.frame = frame;
 	}
 	
-	public multiple(String s, User selectedUser_input) {
+	public multiple(String s, User selectedUser_input) 
+	{
+		this.mscore = CoreData.progress_mvalue;
 		this.selectedUser = selectedUser_input;
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setBounds(100, 100, 835, 533);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -76,6 +79,7 @@ public class multiple extends Quiz {
 				} g.drawImage(img, 0, 0, null);
 			}
 		};
+		mpanel_1.setToolTipText("");
 		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
 		gl_panel_1.setHorizontalGroup(
 			gl_panel_1.createParallelGroup(Alignment.TRAILING)
@@ -124,6 +128,25 @@ public class multiple extends Quiz {
 							.addComponent(mpanel_1, GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)))
 					.addContainerGap())
 		);
+		
+		JTextArea txtrWhichOneHolds = new JTextArea();
+		txtrWhichOneHolds.setText("Which one holds bits that represent a way of accessing an object stored in memory (heap)?\r\nA. Reference Variable\r\nB. Base type Variable\r\nC. Integer\r\nD. JVM\r\nE. Boolean");
+		GroupLayout gl_mpanel_1 = new GroupLayout(mpanel_1);
+		gl_mpanel_1.setHorizontalGroup(
+			gl_mpanel_1.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_mpanel_1.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(txtrWhichOneHolds, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(34, Short.MAX_VALUE))
+		);
+		gl_mpanel_1.setVerticalGroup(
+			gl_mpanel_1.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_mpanel_1.createSequentialGroup()
+					.addGap(37)
+					.addComponent(txtrWhichOneHolds, GroupLayout.PREFERRED_SIZE, 158, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(92, Short.MAX_VALUE))
+		);
+		mpanel_1.setLayout(gl_mpanel_1);
 		panel_1.setLayout(gl_panel_1);
 		
 		JPanel panel_2 = new JPanel();
@@ -144,11 +167,10 @@ public class multiple extends Quiz {
 		JPanel panel_3 = new JPanel();
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
 		gl_panel_2.setHorizontalGroup(
-			gl_panel_2.createParallelGroup(Alignment.TRAILING)
-				.addGroup(Alignment.LEADING, gl_panel_2.createSequentialGroup()
+			gl_panel_2.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_2.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
-						.addComponent(panel_3, GroupLayout.DEFAULT_SIZE, 761, Short.MAX_VALUE)
 						.addComponent(lblQ_1)
 						.addGroup(gl_panel_2.createSequentialGroup()
 							.addComponent(rdbtnA_2)
@@ -159,7 +181,8 @@ public class multiple extends Quiz {
 							.addGap(108)
 							.addComponent(rdbtnD_2)
 							.addGap(104)
-							.addComponent(rdbtnE_2)))
+							.addComponent(rdbtnE_2))
+						.addComponent(panel_3, GroupLayout.DEFAULT_SIZE, 735, Short.MAX_VALUE))
 					.addContainerGap())
 		);
 		gl_panel_2.setVerticalGroup(
@@ -168,7 +191,7 @@ public class multiple extends Quiz {
 					.addContainerGap()
 					.addComponent(lblQ_1)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(panel_3, GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
+					.addComponent(panel_3, GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_panel_2.createParallelGroup(Alignment.BASELINE)
 						.addComponent(rdbtnA_2)
@@ -178,6 +201,25 @@ public class multiple extends Quiz {
 						.addComponent(rdbtnE_2))
 					.addContainerGap())
 		);
+		
+		JTextArea txtrWhichOneStores = new JTextArea();
+		txtrWhichOneStores.setText("Which one stores a numbered list of variables (base types or references).\r\nA. Short\r\nB. Double\r\nC. Integer\r\nD. Array\r\nE. Boolean");
+		GroupLayout gl_panel_3 = new GroupLayout(panel_3);
+		gl_panel_3.setHorizontalGroup(
+			gl_panel_3.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_3.createSequentialGroup()
+					.addGap(68)
+					.addComponent(txtrWhichOneStores, GroupLayout.PREFERRED_SIZE, 564, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(103, Short.MAX_VALUE))
+		);
+		gl_panel_3.setVerticalGroup(
+			gl_panel_3.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_3.createSequentialGroup()
+					.addGap(35)
+					.addComponent(txtrWhichOneStores, GroupLayout.PREFERRED_SIZE, 191, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(37, Short.MAX_VALUE))
+		);
+		panel_3.setLayout(gl_panel_3);
 		panel_2.setLayout(gl_panel_2);
 		
 		JPanel number = new JPanel();

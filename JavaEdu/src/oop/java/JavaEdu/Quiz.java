@@ -10,7 +10,7 @@ public abstract class Quiz implements Serializable {
 	
 	public void solve(){				//Override the method
 	}
-	public boolean isCorrect(){			//Override the method
+	public boolean isCorrect(String ans,String ans2){			//Override the method
 		if( userAnswer.equals(answer) ) return true;
 		else return false;
 	}

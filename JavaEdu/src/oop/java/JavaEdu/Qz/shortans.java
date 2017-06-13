@@ -7,11 +7,8 @@ import java.awt.EventQueue;
  
 import javax.swing.JFrame; 
 import javax.swing.JPanel; 
-import javax.swing.border.EmptyBorder; 
- 
- 
-import oop.java.JavaEdu.Chapter; 
-import oop.java.JavaEdu.Quiz; 
+import javax.swing.border.EmptyBorder;
+
 import oop.java.JavaEdu.*; 
  
 import javax.swing.GroupLayout; 
@@ -47,8 +44,9 @@ public class shortans extends Quiz {
 	}
 
 	public shortans(String s, User selectedUser_input) {
+		this.sscore = CoreData.progress_svalue;
 		this.selectedUser = selectedUser_input;
-		sframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		sframe.setBounds(100, 100, 835, 533);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -163,7 +161,7 @@ public class shortans extends Quiz {
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(textField.getText().equals("answer")){
+				/*if(textField.getText().equals("answer")){
 					sscore++;
 					CoreData.progress_svalue=sscore;
 				}
@@ -171,14 +169,17 @@ public class shortans extends Quiz {
 					sscore++;
 					CoreData.progress_svalue=sscore;
 				}
-				
+				*/
 			
-				/*if(shortans.isCorrect(textField.getText(), "answer")){
+				if(isCorrect(textField.getText(), "answer")){
 					sscore++;
+					CoreData.progress_svalue = sscore;
+					
 				}
-				if(shortans.isCorrect(textField_1.getText(), "answer")){
+				if(isCorrect(textField_1.getText(), "answer")){
 					sscore++;
-				}*/
+					CoreData.progress_svalue = sscore;
+				}
 				JOptionPane.showMessageDialog(null, "You get " + sscore + " point.");
 			}
 		});
@@ -219,7 +220,7 @@ public class shortans extends Quiz {
 		contentPane.setLayout(gl_contentPane);
 	}
 
-	/*@Override
+	@Override
 	public boolean isCorrect(String ans, String ans2) {
 		// TODO Auto-generated method stub
 		if(ans.equals(ans2)){
@@ -227,7 +228,7 @@ public class shortans extends Quiz {
 		}
 		return super.isCorrect(ans, ans2);
 	}
-*/
+
 	
 	
 }

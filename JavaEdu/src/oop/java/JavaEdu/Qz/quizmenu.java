@@ -44,11 +44,7 @@ public class quizmenu extends Quiz {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		frame.setContentPane(contentPane);
 		
-		//selectedUser.setQuizPoint(CoreData.progress_mvalue, 0);
-		//selectedUser.setQuizPoint(CoreData.progress_svalue, 1);
-		//selectedUser.setQuizPoint(CoreData.progress_ovalue, 2);
-		//CoreData.progress_mvalue
-		
+	
 		if(s.equals("Class and Object")){
 		selectedUser = UserManage.EditUser(selectedUser,0,(double)selectedUser.getQuizPoint(0));
 		selectedUser = UserManage.EditUser(selectedUser,1,(double)selectedUser.getQuizPoint(1));

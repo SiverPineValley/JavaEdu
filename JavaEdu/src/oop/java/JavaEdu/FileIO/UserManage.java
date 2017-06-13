@@ -84,6 +84,7 @@ public class UserManage {
 	public static User EditUser( User user, int type, double quizPoint) {  
 	 	ArrayList<User> userList;  
 	 	int index=0; 
+	 
 	 	try {  
 	 		userList = UserfromFile();  
 //	 		index = userList.indexOf(user);  
