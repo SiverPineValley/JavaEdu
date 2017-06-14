@@ -36,7 +36,7 @@ public class quizmenu extends Quiz {
 
 	public quizmenu(String s, User selectedUser_input) {
 		this.selectedUser = selectedUser_input;
-
+		selectedUser = UserManage.searchUser(selectedUser.getId());
 		frame.setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -53,8 +53,9 @@ public class quizmenu extends Quiz {
 			chaptertype = 3;
 		else if (s.equals("GUI"))
 			chaptertype = 4;
-		else
+		else if (s.equals("FileIO"))
 			chaptertype = 5;
+		else chaptertype = -1;
 
 		JButton btnmultiple = new JButton("multiple choice");
 		btnmultiple.addActionListener(new ActionListener() {

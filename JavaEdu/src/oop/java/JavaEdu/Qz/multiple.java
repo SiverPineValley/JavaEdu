@@ -49,7 +49,7 @@ public class multiple extends Quiz {
 	
 	public multiple(String s, User selectedUser_input, int chaptertype) 
 	{
-		this.mscore = CoreData.progress_mvalue;
+		this.mscore = 0;
 		this.run = CoreData.runvalue;
 		this.selectedUser = selectedUser_input;
 		frame.setBounds(100, 100, 835, 533);

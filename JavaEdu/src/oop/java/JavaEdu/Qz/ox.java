@@ -42,7 +42,7 @@ public class ox extends Quiz {
 
 	public ox(String s, User selectedUser_input, int chaptertype) {
 		this.selectedUser = selectedUser_input;
-		this.oscore = CoreData.progress_ovalue;
+		this.oscore = 0;
 		this.run = CoreData.runvalue_1;
 		oframe.setBounds(100, 100, 835, 533);
 		contentPane = new JPanel();

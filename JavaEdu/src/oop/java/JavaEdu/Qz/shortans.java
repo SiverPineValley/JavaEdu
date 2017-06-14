@@ -47,7 +47,7 @@ public class shortans extends Quiz {
 	}
 
 	public shortans(String s, User selectedUser_input, int chaptertype) {
-		this.sscore = CoreData.progress_svalue;
+		this.sscore = 0;
 		this.selectedUser = selectedUser_input;
 		this.run = CoreData.runvalue_2;
 		
