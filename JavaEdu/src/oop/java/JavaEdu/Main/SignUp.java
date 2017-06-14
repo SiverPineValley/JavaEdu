@@ -53,24 +53,38 @@ public class SignUp extends JFrame {
 		JButton signUp = new JButton("Sign up");
 		signUp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String name = nameField.getText();
-				String id = idField.getText();
-				String password = passwordField.getText();
-
+				String name = nameField.getText().trim();
+				String id = idField.getText().trim();
+				String password = passwordField.getText().trim();
+				
+				int t = 0;
+				if (id.length() == 9) {
+					for (t = 0; t < 9; t++) {
+						if (id.charAt(t) < 48 || id.charAt(t) > 57) {
+							t = 100;
+							break;
+						}
+					}
+				}
+				
+				
 				if (name.length() == 0)
 					JOptionPane.showMessageDialog(null, "No name", "Error", JOptionPane.INFORMATION_MESSAGE);
 				else if (id.length() == 0)
 					JOptionPane.showMessageDialog(null, "No Id", "Error", JOptionPane.INFORMATION_MESSAGE);
-				else if (id.length() != 9)
+				else if (id.trim().length() != 9)
 					JOptionPane.showMessageDialog(null, "Id length should be 9", "Error",
 							JOptionPane.INFORMATION_MESSAGE);
-				else if (password.length() < 6 || password.length() > 13)
+				else if (password.trim().length() < 6 || password.trim().length() > 13)
 					JOptionPane.showMessageDialog(null, "Password length should be from 6 to 13", "Error",
 							JOptionPane.INFORMATION_MESSAGE);
 				else if ( UserManage.searchUser(id) != null )
 					JOptionPane.showMessageDialog(null, "Id id already existed", "Error",
 							JOptionPane.INFORMATION_MESSAGE);
-				else {
+				else if (t == 100) {
+					JOptionPane.showMessageDialog(null, "Only number can be input in Id!!", "Fail",
+							JOptionPane.INFORMATION_MESSAGE);
+				} else {
 					UserManage.UsertoFile(new User(name, id, password));
 					dispose();
 				}

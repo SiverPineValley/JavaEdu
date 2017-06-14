@@ -46,9 +46,11 @@ public class UserManage {
 			os.close();
 			return tempUser;
 		} catch (IOException e) {
-			
+			JOptionPane.showMessageDialog(null, "Cannot Find the file!!!", "Fail",
+					JOptionPane.INFORMATION_MESSAGE);
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Cannot Find the Information!!!", "Fail",
+					JOptionPane.INFORMATION_MESSAGE);
 		}
 		return null;
 	}
@@ -74,7 +76,8 @@ public class UserManage {
 			os.close();
 			return null;
 		} catch (Exception e) {
-
+			JOptionPane.showMessageDialog(null, "Cannot find the id!!!", "Fail",
+					JOptionPane.INFORMATION_MESSAGE);
 		}
 
 		return null;
@@ -109,9 +112,13 @@ public class UserManage {
 	 			  
 	 		  
 	 		}catch(NullPointerException e) {  
+	 			JOptionPane.showMessageDialog(null, "Cannot Find the Id!!!", "Fail",
+						JOptionPane.INFORMATION_MESSAGE);
 	 			e.printStackTrace();  
 	 			return user;  
 	 		}catch (IOException e) {  
+	 			JOptionPane.showMessageDialog(null, "Cannot Find the File!!!", "Fail",
+						JOptionPane.INFORMATION_MESSAGE);
 	 			e.printStackTrace();  
 	 			return user;  
 	 		}  

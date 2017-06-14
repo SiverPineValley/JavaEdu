@@ -62,6 +62,7 @@ public class MainFrame extends JFrame {
 	private Chapter fileIO = new Chapter("FileIO");
 	private int currentExpage = 1;
 	private int lastpage = 1;
+	private CodeExample codeEx;
 
 	public int getCurrentExpage() {
 		return currentExpage;
@@ -214,7 +215,8 @@ public class MainFrame extends JFrame {
 		btnExplanation.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cardLayoutSet.show(getContentPane(), "explanationFrame");
-				new CodeExample(selectedChapter.getChapterInfo()).setVisible(true);;
+				codeEx = new CodeExample(selectedChapter.getChapterInfo());
+				codeEx.setVisible(true);
 				if (selectedChapter.equals(abstractInterface)) {
 					imgName = "JavaEdu//ExplanationSource\\AbstractClassandInterfaces\\ab1.png";
 					pageIdentifier.setText("1/" + abstractInterface.getExplanation().getTotalProgress());
@@ -379,6 +381,7 @@ public class MainFrame extends JFrame {
 		btnBack_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cardLayoutSet.show(getContentPane(), "MaterialSelect");
+				codeEx.setVisible(false);
 				currentExpage = 1;
 			}
 		});
@@ -386,8 +389,10 @@ public class MainFrame extends JFrame {
 		JButton lastEx = new JButton("<");
 		lastEx.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (currentExpage == 1)
+				if (currentExpage == 1) {
 					cardLayoutSet.show(getContentPane(), "MaterialSelect");
+					codeEx.setVisible(false);
+				}
 				if (selectedChapter.equals(abstractInterface)) {
 					if (currentExpage > 1) {
 						currentExpage--;
