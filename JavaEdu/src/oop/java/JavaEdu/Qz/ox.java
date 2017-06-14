@@ -22,6 +22,7 @@ import oop.java.JavaEdu.User;
 
 import java.awt.CardLayout;
 import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
 
 public class ox extends Quiz {
 
@@ -29,6 +30,7 @@ public class ox extends Quiz {
 	private JFrame oframe = new JFrame();
 	private int oscore;
 	private User selectedUser;
+	private int run;
 	public JFrame getOframe() {
 		return oframe;
 	}
@@ -39,7 +41,8 @@ public class ox extends Quiz {
 
 	public ox(String s,User selectedUser_input) {
 		this.selectedUser = selectedUser_input;
-		oframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.oscore = CoreData.progress_ovalue;
+		this.run = CoreData.runvalue_1;
 		oframe.setBounds(100, 100, 835, 533);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -58,31 +61,70 @@ public class ox extends Quiz {
 		JRadioButton rdbtnX = new JRadioButton("X");
 		
 		JRadioButton rdbtnO = new JRadioButton("O");
+		
+		JTextArea textArea = new JTextArea();
+		JTextArea textArea_1 = new JTextArea();
+		if(s.equals("Class and Object")){
+			textArea.setText("Class and Object OX Question1?\r\n");	
+			textArea_1.setText("Class and Object OX Question2?.\r\n");
+		}
+		if(s.equals("Inheritance")){
+			textArea.setText("Inheritance OX Question1?\r\n");	
+			textArea_1.setText("Inheritance OX Question2?.\r\n");
+		}
+		JPanel panel_3 = new JPanel();
 		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
 		gl_panel_1.setHorizontalGroup(
-			gl_panel_1.createParallelGroup(Alignment.TRAILING)
+			gl_panel_1.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_1.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblQ)
-					.addContainerGap(758, Short.MAX_VALUE))
-				.addGroup(gl_panel_1.createSequentialGroup()
-					.addContainerGap(619, Short.MAX_VALUE)
-					.addComponent(rdbtnO)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(rdbtnX)
-					.addContainerGap())
+					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel_1.createSequentialGroup()
+							.addGap(659)
+							.addComponent(rdbtnO)
+							.addGap(9)
+							.addComponent(rdbtnX))
+						.addGroup(gl_panel_1.createSequentialGroup()
+							.addGap(17)
+							.addComponent(lblQ))
+						.addGroup(gl_panel_1.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(panel_3, GroupLayout.PREFERRED_SIZE, 605, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(13, Short.MAX_VALUE))
 		);
 		gl_panel_1.setVerticalGroup(
 			gl_panel_1.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_1.createSequentialGroup()
-					.addContainerGap()
+					.addGap(15)
 					.addComponent(lblQ)
-					.addPreferredGap(ComponentPlacement.RELATED, 299, Short.MAX_VALUE)
-					.addGroup(gl_panel_1.createParallelGroup(Alignment.BASELINE)
-						.addComponent(rdbtnX)
-						.addComponent(rdbtnO))
-					.addContainerGap())
+					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel_1.createSequentialGroup()
+							.addGap(277)
+							.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+								.addComponent(rdbtnO)
+								.addComponent(rdbtnX)))
+						.addGroup(gl_panel_1.createSequentialGroup()
+							.addGap(18)
+							.addComponent(panel_3, GroupLayout.PREFERRED_SIZE, 256, GroupLayout.PREFERRED_SIZE))))
 		);
+		
+		
+		panel_3.setToolTipText("");
+		GroupLayout gl_panel_3 = new GroupLayout(panel_3);
+		gl_panel_3.setHorizontalGroup(
+			gl_panel_3.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_3.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(textArea, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(588, Short.MAX_VALUE))
+		);
+		gl_panel_3.setVerticalGroup(
+			gl_panel_3.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_3.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(textArea, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(217, Short.MAX_VALUE))
+		);
+		panel_3.setLayout(gl_panel_3);
 		panel_1.setLayout(gl_panel_1);
 		
 		JPanel panel_2 = new JPanel();
@@ -93,31 +135,57 @@ public class ox extends Quiz {
 		JRadioButton rdbtnX_1 = new JRadioButton("X");
 		
 		JRadioButton rdbtnO_1 = new JRadioButton("O");
+		
+		JPanel panel_4 = new JPanel();
+		panel_4.setToolTipText("");
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
 		gl_panel_2.setHorizontalGroup(
 			gl_panel_2.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_2.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblQ_1)
-					.addContainerGap(758, Short.MAX_VALUE))
-				.addGroup(Alignment.TRAILING, gl_panel_2.createSequentialGroup()
-					.addContainerGap(619, Short.MAX_VALUE)
-					.addComponent(rdbtnO_1)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(rdbtnX_1)
-					.addContainerGap())
+					.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel_2.createSequentialGroup()
+							.addGap(17)
+							.addComponent(lblQ_1))
+						.addGroup(gl_panel_2.createSequentialGroup()
+							.addGap(659)
+							.addComponent(rdbtnO_1)
+							.addGap(9)
+							.addComponent(rdbtnX_1))
+						.addGroup(gl_panel_2.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(panel_4, GroupLayout.PREFERRED_SIZE, 573, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(13, Short.MAX_VALUE))
 		);
 		gl_panel_2.setVerticalGroup(
 			gl_panel_2.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_2.createSequentialGroup()
-					.addContainerGap()
+					.addGap(15)
 					.addComponent(lblQ_1)
-					.addPreferredGap(ComponentPlacement.RELATED, 299, Short.MAX_VALUE)
-					.addGroup(gl_panel_2.createParallelGroup(Alignment.BASELINE)
-						.addComponent(rdbtnX_1)
-						.addComponent(rdbtnO_1))
-					.addContainerGap())
+					.addGap(18)
+					.addComponent(panel_4, GroupLayout.PREFERRED_SIZE, 249, GroupLayout.PREFERRED_SIZE)
+					.addGap(10)
+					.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
+						.addComponent(rdbtnO_1)
+						.addComponent(rdbtnX_1)))
 		);
+		
+	
+		GroupLayout gl_panel_4 = new GroupLayout(panel_4);
+		gl_panel_4.setHorizontalGroup(
+			gl_panel_4.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_4.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(textArea_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(556, Short.MAX_VALUE))
+		);
+		gl_panel_4.setVerticalGroup(
+			gl_panel_4.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_4.createSequentialGroup()
+					.addGap(28)
+					.addComponent(textArea_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(197, Short.MAX_VALUE))
+		);
+		panel_4.setLayout(gl_panel_4);
 		panel_2.setLayout(gl_panel_2);
 		
 		JPanel number = new JPanel();
@@ -163,6 +231,7 @@ public class ox extends Quiz {
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(CoreData.runvalue_1==0){
 				if(rdbtnX.isSelected()){
 					oscore++;
 					CoreData.progress_ovalue=oscore;
@@ -171,8 +240,17 @@ public class ox extends Quiz {
 					oscore++;
 					CoreData.progress_ovalue=oscore;
 				}
+				run++;
+				CoreData.runvalue_1=run;
 				JOptionPane.showMessageDialog(null, "You get " + oscore + " point.");
-			}
+				}
+				else{
+					JOptionPane.showMessageDialog(null, "You already test go back", "Fail",
+							JOptionPane.INFORMATION_MESSAGE);
+					CoreData.runvalue_1=0;
+				}
+				}
+			
 		});
 		
 		JButton btnBack = new JButton("Back");

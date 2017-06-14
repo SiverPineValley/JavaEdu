@@ -293,6 +293,7 @@ public class multiple extends Quiz {
 						mscore++;
 						CoreData.progress_mvalue = mscore;
 					}
+				run++;	
 					}
 				if(s.equals("Polymorphism")){
 					if(rdbtnC_1.isSelected()){
@@ -303,6 +304,7 @@ public class multiple extends Quiz {
 						mscore++;
 						CoreData.progress_mvalue = mscore;
 					}
+				run++;	
 					}
 				if(s.equals("Abstraction Class and Interfaces")){
 					if(rdbtnD_1.isSelected()){
@@ -313,6 +315,7 @@ public class multiple extends Quiz {
 						mscore++;
 						CoreData.progress_mvalue = mscore;
 					}
+				run++;
 					}
 				if(s.equals("GUI")){
 					if(rdbtnE_1.isSelected()){
@@ -323,6 +326,7 @@ public class multiple extends Quiz {
 						mscore++;
 						CoreData.progress_mvalue = mscore;
 					}
+				run++;
 					}
 				if(s.equals("FileIO")){
 					if(rdbtnA_1.isSelected()){
@@ -333,8 +337,9 @@ public class multiple extends Quiz {
 						mscore++;
 						CoreData.progress_mvalue = mscore;
 					}
+				run++;	
 					}
-				run++;
+				//run++;
 				CoreData.runvalue=run;
 				JOptionPane.showMessageDialog(null, "You get " + mscore + " point.");
 				}
