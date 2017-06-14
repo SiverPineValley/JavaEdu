@@ -45,16 +45,11 @@ public class quizmenu extends Quiz {
 		frame.setContentPane(contentPane);
 		
 	
-		if(s.equals("Class and Object")){
+		
 		selectedUser = UserManage.EditUser(selectedUser,0,(double)selectedUser.getQuizPoint(0));
 		selectedUser = UserManage.EditUser(selectedUser,1,(double)selectedUser.getQuizPoint(1));
 		selectedUser = UserManage.EditUser(selectedUser,2,(double)selectedUser.getQuizPoint(2));
-		}
-		if(s.equals("Inheritance")){
-			selectedUser = UserManage.EditUser(selectedUser,0,(double)selectedUser.getQuizPoint(0));
-			selectedUser = UserManage.EditUser(selectedUser,1,(double)selectedUser.getQuizPoint(1));
-			selectedUser = UserManage.EditUser(selectedUser,2,(double)selectedUser.getQuizPoint(2));
-		}
+
 		JButton btnmultiple = new JButton("multiple choice");
 		btnmultiple.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

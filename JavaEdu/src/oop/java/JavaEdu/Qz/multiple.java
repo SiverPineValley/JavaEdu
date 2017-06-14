@@ -22,6 +22,8 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 
 import oop.java.JavaEdu.*;
+import oop.java.JavaEdu.FileIO.UserManage;
+
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
@@ -290,84 +292,88 @@ public class multiple extends Quiz {
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				if(CoreData.runvalue==0){
+				
 				if(s.equals("Class and Object")){
 				if(rdbtnA_1.isSelected()){
 					mscore++;
 					CoreData.progress_mvalue = mscore;
+					selectedUser.setQuizPoint(mscore, 0);
 				}
 				if(rdbtnA_2.isSelected()){
 					mscore++;
 					CoreData.progress_mvalue = mscore;
+					selectedUser.setQuizPoint(mscore, 0);
 				}
-				run++;
+				
 				}
 				if(s.equals("Inheritance")){
 					if(rdbtnB_1.isSelected()){
 						mscore++;
 						CoreData.progress_mvalue = mscore;
+						selectedUser.setQuizPoint(mscore, 0);
 					}
 					if(rdbtnB_2.isSelected()){
 						mscore++;
 						CoreData.progress_mvalue = mscore;
+						selectedUser.setQuizPoint(mscore, 0);
 					}
-				run++;	
+				
 					}
 				if(s.equals("Polymorphism")){
 					if(rdbtnC_1.isSelected()){
 						mscore++;
 						CoreData.progress_mvalue = mscore;
+						selectedUser.setQuizPoint(mscore, 0);
 					}
 					if(rdbtnC_2.isSelected()){
 						mscore++;
 						CoreData.progress_mvalue = mscore;
+						selectedUser.setQuizPoint(mscore, 0);
 					}
-				run++;	
+				
 					}
 				if(s.equals("Abstraction Class and Interfaces")){
 					if(rdbtnD_1.isSelected()){
 						mscore++;
 						CoreData.progress_mvalue = mscore;
+						selectedUser.setQuizPoint(mscore, 0);
 					}
 					if(rdbtnD_2.isSelected()){
 						mscore++;
 						CoreData.progress_mvalue = mscore;
+						selectedUser.setQuizPoint(mscore, 0);
 					}
-				run++;
+				
 					}
 				if(s.equals("GUI")){
 					if(rdbtnE_1.isSelected()){
 						mscore++;
 						CoreData.progress_mvalue = mscore;
+						selectedUser.setQuizPoint(mscore, 0);
 					}
 					if(rdbtnE_2.isSelected()){
 						mscore++;
 						CoreData.progress_mvalue = mscore;
+						selectedUser.setQuizPoint(mscore, 0);
 					}
-				run++;
+				
 					}
 				if(s.equals("FileIO")){
 					if(rdbtnA_1.isSelected()){
 						mscore++;
 						CoreData.progress_mvalue = mscore;
+						selectedUser.setQuizPoint(mscore, 0);
 					}
 					if(rdbtnA_2.isSelected()){
 						mscore++;
 						CoreData.progress_mvalue = mscore;
+						selectedUser.setQuizPoint(mscore, 0);
 					}
-				run++;	
+				
 					}
-				//run++;
-				CoreData.runvalue=run;
-				JOptionPane.showMessageDialog(null, "You get " + mscore + " point.");
-				}
-				else{
-					JOptionPane.showMessageDialog(null, "You already test go back", "Fail",
-							JOptionPane.INFORMATION_MESSAGE);
-					CoreData.runvalue=0;
-				}
-				
-				
+			
+				JOptionPane.showMessageDialog(null, "You get " + CoreData.progress_mvalue + " point.");
+
 				
 				
 				

@@ -90,7 +90,7 @@ public class UserManage {
 	 
 	 	try {  
 	 		userList = UserfromFile();  
-//	 		index = userList.indexOf(user);  
+
 
 	 		int tempindex = 0;
 	 		
@@ -125,6 +125,7 @@ public class UserManage {
 	 			return userList.get(index);  
 	 		  
 	 	}  
+	
 
 
 

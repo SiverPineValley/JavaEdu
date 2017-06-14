@@ -9,8 +9,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel; 
 import javax.swing.border.EmptyBorder;
 
-import oop.java.JavaEdu.*; 
- 
+import oop.java.JavaEdu.*;
+import oop.java.JavaEdu.FileIO.UserManage;
+
 import javax.swing.GroupLayout; 
 import javax.swing.GroupLayout.Alignment; 
 import javax.swing.LayoutStyle.ComponentPlacement; 
@@ -226,25 +227,20 @@ public class shortans extends Quiz {
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(CoreData.runvalue_2==0){
+			
 				if(isCorrect(textField.getText(), "answer")){
 					sscore++;
 					CoreData.progress_svalue = sscore;
+					selectedUser.setQuizPoint(sscore, 1);
 					
 				}
 				if(isCorrect(textField_1.getText(), "answer")){
 					sscore++;
 					CoreData.progress_svalue = sscore;
+					selectedUser.setQuizPoint(sscore, 1);
 				}
-				run++;
-				CoreData.runvalue_2=run;
-				JOptionPane.showMessageDialog(null, "You get " + sscore + " point.");
-				}
-				else{
-					JOptionPane.showMessageDialog(null, "You already test go back", "Fail",
-							JOptionPane.INFORMATION_MESSAGE);
-					CoreData.runvalue_2=0;
-				}
+				
+				JOptionPane.showMessageDialog(null, "You get " + CoreData.progress_svalue + " point.");
 				
 			}
 				

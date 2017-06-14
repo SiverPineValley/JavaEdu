@@ -20,8 +20,12 @@ public class Progress extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Progress(User usr, Chapter chpt, int lastpage) {
+	private User selectedusr;
 	
+	public Progress(User usr, Chapter chpt, int lastpage) {
+		
+		this.selectedusr = usr;
+
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -33,13 +37,13 @@ public class Progress extends JFrame {
 		
 		JLabel lblSelectedChapter = new JLabel("Selected Chapter: "+chpt.getChapterInfo());
 		
-		JLabel lblOx = new JLabel("OX Choice Score: "+CoreData.progress_ovalue);
+		JLabel lblOx = new JLabel("OX Choice Stored Score: "+selectedusr.getQuizPoint(2)+"OX Choice Now Score: "+CoreData.progress_ovalue);
 		
-		JLabel lblMultiple = new JLabel("Multiple Choice Score: "+CoreData.progress_mvalue);
+		JLabel lblMultiple = new JLabel("Multiple Choice Stored Score: "+selectedusr.getQuizPoint(0) +"Multiple Choice Now Score: "+CoreData.progress_mvalue);
 		 
-		JLabel lblShortans = new JLabel("Short Answer Score: "+CoreData.progress_svalue);
+		JLabel lblShortans = new JLabel("Short Answer Stored Score: "+selectedusr.getQuizPoint(1)+"Short Answer Now Score: "+CoreData.progress_svalue);
 		
-		JLabel lblTotal = new JLabel("Total Score: "+(CoreData.progress_ovalue+CoreData.progress_mvalue+CoreData.progress_svalue));
+		JLabel lblTotal = new JLabel("Total Stored Score: "+(selectedusr.getQuizPoint(2)+selectedusr.getQuizPoint(1)+selectedusr.getQuizPoint(0))+"Now Total Score: " +(CoreData.progress_svalue+CoreData.progress_mvalue+CoreData.progress_ovalue));
 		
 		JLabel lblPage = new JLabel("Last View Page: "+lastpage);
 		

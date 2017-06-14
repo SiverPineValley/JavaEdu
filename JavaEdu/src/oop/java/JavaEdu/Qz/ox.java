@@ -19,6 +19,7 @@ import oop.java.JavaEdu.Chapter;
 import oop.java.JavaEdu.CoreData;
 import oop.java.JavaEdu.Quiz;
 import oop.java.JavaEdu.User;
+import oop.java.JavaEdu.FileIO.UserManage;
 
 import java.awt.CardLayout;
 import javax.swing.JRadioButton;
@@ -231,25 +232,20 @@ public class ox extends Quiz {
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(CoreData.runvalue_1==0){
 				if(rdbtnX.isSelected()){
 					oscore++;
 					CoreData.progress_ovalue=oscore;
+					selectedUser.setQuizPoint(oscore, 2);
 				}
 				if(rdbtnO_1.isSelected()){
 					oscore++;
 					CoreData.progress_ovalue=oscore;
+					selectedUser.setQuizPoint(oscore, 2);
 				}
-				run++;
-				CoreData.runvalue_1=run;
-				JOptionPane.showMessageDialog(null, "You get " + oscore + " point.");
+				
+				JOptionPane.showMessageDialog(null, "You get " + CoreData.progress_ovalue + " point.");
 				}
-				else{
-					JOptionPane.showMessageDialog(null, "You already test go back", "Fail",
-							JOptionPane.INFORMATION_MESSAGE);
-					CoreData.runvalue_1=0;
-				}
-				}
+			
 			
 		});
 		
