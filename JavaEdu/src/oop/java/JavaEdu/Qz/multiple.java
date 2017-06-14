@@ -9,6 +9,7 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ButtonGroup;
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -73,6 +74,14 @@ public class multiple extends Quiz {
 		JRadioButton rdbtnD_1 = new JRadioButton("D");
 		
 		JRadioButton rdbtnE_1 = new JRadioButton("E");
+		
+		ButtonGroup bg_1 = new ButtonGroup();
+		
+		bg_1.add(rdbtnA_1);
+		bg_1.add(rdbtnB_1);
+		bg_1.add(rdbtnC_1);
+		bg_1.add(rdbtnD_1);
+		bg_1.add(rdbtnE_1);
 		
 		JTextArea txtrWhichOneHolds = new JTextArea();
 		JTextArea txtrWhichOneStores = new JTextArea();
@@ -171,6 +180,15 @@ public class multiple extends Quiz {
 		JRadioButton rdbtnD_2 = new JRadioButton("D");
 		
 		JRadioButton rdbtnE_2 = new JRadioButton("E");
+		
+		ButtonGroup bg_2 = new ButtonGroup();
+		
+		bg_2.add(rdbtnA_2);
+		bg_2.add(rdbtnB_2);
+		bg_2.add(rdbtnC_2);
+		bg_2.add(rdbtnD_2);
+		bg_2.add(rdbtnE_2);
+		
 		
 		JPanel panel_3 = new JPanel();
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
