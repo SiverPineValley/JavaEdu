@@ -46,7 +46,7 @@ public class shortans extends Quiz {
 		this.sframe = sframe;
 	}
 
-	public shortans(String s, User selectedUser_input) {
+	public shortans(String s, User selectedUser_input, int chaptertype) {
 		this.sscore = CoreData.progress_svalue;
 		this.selectedUser = selectedUser_input;
 		this.run = CoreData.runvalue_2;
@@ -227,20 +227,19 @@ public class shortans extends Quiz {
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
+				
 				if(isCorrect(textField.getText(), "answer")){
 					sscore++;
 					CoreData.progress_svalue = sscore;
-					selectedUser.setQuizPoint(sscore, 1);
 					
 				}
 				if(isCorrect(textField_1.getText(), "answer")){
 					sscore++;
 					CoreData.progress_svalue = sscore;
-					selectedUser.setQuizPoint(sscore, 1);
 				}
 				
 				JOptionPane.showMessageDialog(null, "You get " + CoreData.progress_svalue + " point.");
+				selectedUser = UserManage.EditUser(selectedUser, chaptertype, 1, sscore);
 				
 			}
 				

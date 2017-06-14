@@ -10,7 +10,13 @@ import java.io.Serializable;
 import javax.swing.JOptionPane;
 
 public class User implements Serializable {
-	private double[] quizPoint = new double[6];
+	/*
+	 * Quiz type
+	 * 0 = multiple
+	 * 1 = shortans
+	 * 2 = ox
+	 */
+	private int[][] quizPoint = new int[6][3];
 	private int[] chapterProgress = new int[6];
 	private String name;
 	private String id;
@@ -23,12 +29,12 @@ public class User implements Serializable {
 	}
 	public User(){}
 
-	public double getQuizPoint(int index) {
-		return quizPoint[index];
+	public int getQuizPoint(int chapter, int type) {
+		return quizPoint[chapter][type];
 	}
 
-	public void setQuizPoint(double quizPoint, int index) {
-		this.quizPoint[index] = quizPoint;
+	public void setQuizPoint(int quizPoint, int chapter, int type) {
+		this.quizPoint[chapter][type] = quizPoint;
 	}
 
 	public String getId() {

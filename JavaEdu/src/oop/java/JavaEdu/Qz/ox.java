@@ -40,7 +40,7 @@ public class ox extends Quiz {
 		this.oframe = oframe;
 	}
 
-	public ox(String s,User selectedUser_input) {
+	public ox(String s, User selectedUser_input, int chaptertype) {
 		this.selectedUser = selectedUser_input;
 		this.oscore = CoreData.progress_ovalue;
 		this.run = CoreData.runvalue_1;
@@ -235,16 +235,16 @@ public class ox extends Quiz {
 				if(rdbtnX.isSelected()){
 					oscore++;
 					CoreData.progress_ovalue=oscore;
-					selectedUser.setQuizPoint(oscore, 2);
 				}
 				if(rdbtnO_1.isSelected()){
 					oscore++;
-					CoreData.progress_ovalue=oscore;
-					selectedUser.setQuizPoint(oscore, 2);
 				}
 				
 				JOptionPane.showMessageDialog(null, "You get " + CoreData.progress_ovalue + " point.");
+				selectedUser = UserManage.EditUser(selectedUser, chaptertype, 2, oscore);
 				}
+				
+			
 			
 			
 		});

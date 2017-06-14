@@ -46,8 +46,8 @@ public class UserManage {
 			os.close();
 			return tempUser;
 		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null, "Cannot Find the file!!!", "Fail",
-					JOptionPane.INFORMATION_MESSAGE);
+			//JOptionPane.showMessageDialog(null, "Cannot Find the file!!!", "Fail",
+					//JOptionPane.INFORMATION_MESSAGE);
 		} catch (ClassNotFoundException e) {
 			JOptionPane.showMessageDialog(null, "Cannot Find the Information!!!", "Fail",
 					JOptionPane.INFORMATION_MESSAGE);
@@ -76,15 +76,14 @@ public class UserManage {
 			os.close();
 			return null;
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Cannot find the id!!!", "Fail",
-					JOptionPane.INFORMATION_MESSAGE);
+			//if user account cannout found, it returns null
 		}
 
 		return null;
 
 	}
 	
-	public static User EditUser( User user, int type, double quizPoint) {  
+	public static User EditUser( User user, int chapter, int type, int quizPoint) {  
 	 	ArrayList<User> userList;  
 	 	int index=0; 
 	 
@@ -103,7 +102,7 @@ public class UserManage {
 	 			tempindex++;
 	 		}
 	 		
-	 		userList.get(index).setQuizPoint(quizPoint,type);
+	 		userList.get(index).setQuizPoint(quizPoint,chapter,type);
 	 		
 	 			  
 	 		FileOutputStream fo = new FileOutputStream("User.dat");  

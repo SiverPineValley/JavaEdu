@@ -47,7 +47,7 @@ public class multiple extends Quiz {
 		this.frame = frame;
 	}
 	
-	public multiple(String s, User selectedUser_input) 
+	public multiple(String s, User selectedUser_input, int chaptertype) 
 	{
 		this.mscore = CoreData.progress_mvalue;
 		this.run = CoreData.runvalue;
@@ -292,88 +292,71 @@ public class multiple extends Quiz {
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				
 				if(s.equals("Class and Object")){
 				if(rdbtnA_1.isSelected()){
 					mscore++;
 					CoreData.progress_mvalue = mscore;
-					selectedUser.setQuizPoint(mscore, 0);
 				}
 				if(rdbtnA_2.isSelected()){
 					mscore++;
 					CoreData.progress_mvalue = mscore;
-					selectedUser.setQuizPoint(mscore, 0);
+					
 				}
-				
 				}
 				if(s.equals("Inheritance")){
 					if(rdbtnB_1.isSelected()){
 						mscore++;
 						CoreData.progress_mvalue = mscore;
-						selectedUser.setQuizPoint(mscore, 0);
 					}
 					if(rdbtnB_2.isSelected()){
 						mscore++;
 						CoreData.progress_mvalue = mscore;
-						selectedUser.setQuizPoint(mscore, 0);
+						
 					}
-				
 					}
 				if(s.equals("Polymorphism")){
 					if(rdbtnC_1.isSelected()){
 						mscore++;
 						CoreData.progress_mvalue = mscore;
-						selectedUser.setQuizPoint(mscore, 0);
 					}
 					if(rdbtnC_2.isSelected()){
 						mscore++;
 						CoreData.progress_mvalue = mscore;
-						selectedUser.setQuizPoint(mscore, 0);
 					}
-				
 					}
 				if(s.equals("Abstraction Class and Interfaces")){
 					if(rdbtnD_1.isSelected()){
 						mscore++;
 						CoreData.progress_mvalue = mscore;
-						selectedUser.setQuizPoint(mscore, 0);
 					}
 					if(rdbtnD_2.isSelected()){
 						mscore++;
 						CoreData.progress_mvalue = mscore;
-						selectedUser.setQuizPoint(mscore, 0);
 					}
-				
 					}
 				if(s.equals("GUI")){
 					if(rdbtnE_1.isSelected()){
 						mscore++;
 						CoreData.progress_mvalue = mscore;
-						selectedUser.setQuizPoint(mscore, 0);
 					}
 					if(rdbtnE_2.isSelected()){
 						mscore++;
 						CoreData.progress_mvalue = mscore;
-						selectedUser.setQuizPoint(mscore, 0);
 					}
-				
 					}
 				if(s.equals("FileIO")){
 					if(rdbtnA_1.isSelected()){
 						mscore++;
 						CoreData.progress_mvalue = mscore;
-						selectedUser.setQuizPoint(mscore, 0);
 					}
 					if(rdbtnA_2.isSelected()){
 						mscore++;
 						CoreData.progress_mvalue = mscore;
-						selectedUser.setQuizPoint(mscore, 0);
 					}
-				
 					}
 			
 				JOptionPane.showMessageDialog(null, "You get " + CoreData.progress_mvalue + " point.");
-
+				UserManage.EditUser(selectedUser, chaptertype, 0, mscore);
 				
 				
 				
