@@ -73,6 +73,22 @@ public class ox extends Quiz {
 			textArea.setText("Inheritance OX Question1?\r\n");	
 			textArea_1.setText("Inheritance OX Question2?.\r\n");
 		}
+		if(s.equals("Polymorphism")){
+			textArea.setText("Polymorphism OX Question1?\r\n");	
+			textArea_1.setText("Polymorphism OX Question2?.\r\n");
+		}
+		if(s.equals("Abstraction Class and Interfaces")){
+			textArea.setText("Abstraction Class and InterfacesOX Question1?\r\n");	
+			textArea_1.setText("Abstraction Class and Interfaces OX Question2?.\r\n");
+		}
+		if(s.equals("GUI")){
+			textArea.setText("GUI OX Question1?\r\n");	
+			textArea_1.setText("GUI OX Question2?.\r\n");
+		}
+		if(s.equals("FileIO")){
+			textArea.setText("FileIO OX Question1?\r\n");	
+			textArea_1.setText("FileIO OX Question2?.\r\n");
+		}
 		JPanel panel_3 = new JPanel();
 		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
 		gl_panel_1.setHorizontalGroup(
@@ -238,6 +254,7 @@ public class ox extends Quiz {
 				}
 				if(rdbtnO_1.isSelected()){
 					oscore++;
+					CoreData.progress_ovalue=oscore;
 				}
 				
 				JOptionPane.showMessageDialog(null, "You get " + CoreData.progress_ovalue + " point.");

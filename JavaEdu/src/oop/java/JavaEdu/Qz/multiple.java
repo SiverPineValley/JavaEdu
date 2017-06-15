@@ -99,6 +99,22 @@ public class multiple extends Quiz {
 			txtrWhichOneHolds.setText("Inheritance Question1?\r\nA. sample\r\nB. sample\r\nC. sample\r\nD. sample\r\nE. sample");	
 			txtrWhichOneStores.setText("Inheritance Question2?.\r\nA. sample\r\nB. sample\r\nC. sample\r\nD. sample\r\nE. sample");
 		}
+		if(s.equals("Polymorphism")){
+			txtrWhichOneHolds.setText("Polymorphism Question1?\r\nA. sample\r\nB. sample\r\nC. sample\r\nD. sample\r\nE. sample");	
+			txtrWhichOneStores.setText("Polymorphism Question2?.\r\nA. sample\r\nB. sample\r\nC. sample\r\nD. sample\r\nE. sample");
+		}
+		if(s.equals("Abstraction Class and Interfaces")){
+			txtrWhichOneHolds.setText("Abstraction Class and Interfaces Question1?\r\nA. sample\r\nB. sample\r\nC. sample\r\nD. sample\r\nE. sample");	
+			txtrWhichOneStores.setText("Abstraction Class and Interfaces Question2?.\r\nA. sample\r\nB. sample\r\nC. sample\r\nD. sample\r\nE. sample");
+		}
+		if(s.equals("GUI")){
+			txtrWhichOneHolds.setText("GUI Question1?\r\nA. sample\r\nB. sample\r\nC. sample\r\nD. sample\r\nE. sample");	
+			txtrWhichOneStores.setText("GUI Question2?.\r\nA. sample\r\nB. sample\r\nC. sample\r\nD. sample\r\nE. sample");
+		}
+		if(s.equals("FileIO")){
+			txtrWhichOneHolds.setText("FileIO Question1?\r\nA. sample\r\nB. sample\r\nC. sample\r\nD. sample\r\nE. sample");	
+			txtrWhichOneStores.setText("FileIO Question2?.\r\nA. sample\r\nB. sample\r\nC. sample\r\nD. sample\r\nE. sample");
+		}
 		
 		mpanel_1.setToolTipText("");
 		GroupLayout gl_panel_1 = new GroupLayout(panel_1);

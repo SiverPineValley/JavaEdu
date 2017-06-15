@@ -81,7 +81,22 @@ public class shortans extends Quiz {
 			textArea.setText("Inheritance shortans Question1?\r\n");	
 			textArea_1.setText("Inheritance shortans Question2?.\r\n");
 		}
-		
+		if(s.equals("Polymorphism")){
+			textArea.setText("Polymorphism shortans Question1?\r\n");	
+			textArea_1.setText("Polymorphism OX Question2?.\r\n");
+		}
+		if(s.equals("Abstraction Class and Interfaces")){
+			textArea.setText("Abstraction Class and Interfaces shortans Question1?\r\n");	
+			textArea_1.setText("Abstraction Class and Interfaces shortans Question2?.\r\n");
+		}
+		if(s.equals("GUI")){
+			textArea.setText("GUI shortans Question1?\r\n");	
+			textArea_1.setText("GUI shortans Question2?.\r\n");
+		}
+		if(s.equals("FileIO")){
+			textArea.setText("FileIO shortans Question1?\r\n");	
+			textArea_1.setText("FileIO shortans Question2?.\r\n");
+		}
 		JPanel panel_3 = new JPanel();
 		panel_3.setToolTipText("");
 		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
